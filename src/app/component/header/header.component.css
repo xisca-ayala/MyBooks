@@ -1,0 +1,18 @@
+.contenedor{
+    background-color: var(--colorYellow);
+    display: flex;
+    height: 80px;
+  
+}
+
+.column{
+    justify-content:space-between;
+    align-items: center;
+    display: flex;
+    
+}
+
+.title{
+    margin-left: 20px;
+}
+

@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+
+  @import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Kalnia&family=Quicksand:wght@300&family=Roboto+Mono:wght@300&display=swap');
+
+
+  *{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+:root{
+    /* colores */
+    --colorYellow: #FFCD21; 
+    --colorBrown: #240600 ; 
+    --colorTurquise:#6AD9D8; 
+    --colorOrange: #FF751D;
+    
+    /* fuentes */
+
+    --font-size-base: 16px;
+    --font-size-title:30px;
+    --font-base1: 'Hedvig Letters Serif', serif;
+    --font-base2: 'Kalnia', serif;
+    --font-base3: 'Quicksand', sans-serif;
+    --font-base4: 'Roboto Mono', monospace;
+
+    
+
+
+}
