@@ -11,10 +11,9 @@
 
 :root{
     /* colores */
-    --colorYellow: #FFCD21; 
-    --colorBrown: #240600 ; 
-    --colorTurquise:#6AD9D8; 
-    --colorOrange: #FF751D;
+    --lightColor:#FCF4EB ;
+    --darkColor: #140B04; 
+
     
     /* fuentes */
 

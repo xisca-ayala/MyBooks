@@ -1,7 +1,8 @@
 .contenedor{
-    background-color: var(--colorYellow);
     display: flex;
-    height: 80px;
+    height: 100px;
+    color:var(--lightColor);
+    background-color: var(--darkColor);
   
 }
 
