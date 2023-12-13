@@ -3,17 +3,37 @@
     height: 100px;
     color:var(--lightColor);
     background-color: var(--darkColor);
+    box-shadow: 0px 15px 15px gray;
   
 }
 
 .column{
     justify-content:space-between;
     align-items: center;
-    display: flex;
-    
+    display: flex;  
 }
 
 .title{
     margin-left: 20px;
 }
 
+
+.linkMenu{
+    text-decoration: none;
+    color: var(--lightColor);
+}
+
+.home:hover{
+    color: var(--lightColor);
+    font-size: 150%;
+}
+
+.register:hover{
+    color: var(--lightColor);
+    font-size: 150%;
+}
+
+.profile:hover{
+    color: var(--lightColor);
+    font-size: 150%;
+}

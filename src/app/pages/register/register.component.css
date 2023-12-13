@@ -1,8 +1,6 @@
-.container{
-    height: 70vh;
-    width: 100%;
+.main{
     display:flex;
+    justify-content: center;
     align-items: center;
-    padding-left: 25%;
-    background-color: var(--lightColor);
+    height: 87vh;
 }

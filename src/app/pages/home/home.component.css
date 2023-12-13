@@ -1,20 +1,21 @@
+
 .main{
-    height: 80vh;
     display:flex;
     flex-direction: row;  
+    height: 100%;
 }
 
 .textHome{
     width: 60%;
-    height: 80vh;
+    min-height: 87vh;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     font-family: var( --font-base2);
-    
 }
+
 
 .textLine{
     background-color: var(--darkColor);
@@ -26,7 +27,6 @@
 
 .imgHome{
     background-image: url('src/assets/img/imgHome/paginas-libro.jpg');
-    height: 80vh;
     width: 40%;
     background-size: cover;
 }

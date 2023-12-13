@@ -2,9 +2,7 @@
     display: flex;
     justify-content:center;
     align-items: center;
-    padding-left: 10%;
-    height: 80px;
+    height: 60px;
     background-color: var(--darkColor);
     color: var(--lightColor)
-  
 }
