@@ -49,6 +49,7 @@ input{
     width: 600px;
     height: 20px;
     margin-top:10px;
+    text-align: center;
 }
 
 .box2{
@@ -70,6 +71,7 @@ input{
 .form{
     margin-right: 40px;
     max-width: 600px;
+    text-align: center;
 }
 
 /* boton */
@@ -87,7 +89,6 @@ button {
     height: 55px;
     -webkit-box-reflect: bottom 1px linear-gradient(transparent, #0004);
     margin-top: 50px;
-    margin-left: 170px;
   }
   
   button span {
