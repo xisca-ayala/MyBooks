@@ -9,26 +9,27 @@
         <div class="user">
             <div class="data">
                 <label for="name">Nombre:</label>
-                <input type="text" name="name" id="name" value="{{user1.name}}" >
+                <input type="text" name="name" id="name" value="{{user1.name}}"disabled="False" >
             </div>
             <div class="data">
                 <label for="lastName">Apellidos:</label>
-                <input type="text" name="lastName" id="lastName" value="{{user1.lastName}}"> 
+                <input type="text" name="lastName" id="lastName" value="{{user1.lastName}}" disabled="False"> 
             </div>
             <div class="data">
                 <label for="email">Correo Electrónico:</label>
-                <input type="email" name="email" id="email" value="{{user1.email}}">
+                <input type="email" name="email" id="email" value="{{user1.email}}" disabled="False">
             </div>
         </div>
+        <div [hidden]="isHidden" style.color = {{myColor}}>{{message}}</div>
     </div>
     <div class="box2">
         <h2 class="title2">EDITAR DATOS</h2>
         <form action="" class="form">
-            <input type="text" name="name" #input1 [(ngModel)]="user1.name" placeholder="Nombre"/>
-            <input type="text" name="lastName" [(ngModel)]="user1.lastName" placeholder="Apellidos"/>
-            <input type="email" name="email" [(ngModel)]="user1.email" placeholder="Correo Electrónico"/>
-            <input type="text" name="url" [(ngModel)]="user1.url" placeholder="Url"/>
-            <button (click)= send(input1.value)> 
+            <input type="text" name="name" #input1  placeholder="Nombre" />
+            <input type="text" name="lastName" #input2  placeholder="Apellidos"/>
+            <input type="email" name="email" #input3  placeholder="Correo Electrónico"/>
+            <input type="text" name="url" #input4  placeholder="Url"/>
+            <button (click)= "send(input1.value, input2.value, input3.value, input4.value)"> 
                 <span> MODIFICAR DATOS</span>
             </button>
         </form>
