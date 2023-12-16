@@ -1,3 +1,7 @@
+*{
+    font-family: var(--font-primary);
+}
+
 .footer{
     display: flex;
     justify-content:center;

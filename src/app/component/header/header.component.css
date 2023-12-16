@@ -1,3 +1,7 @@
+*{
+    font-family: var(--font-primary);
+}
+
 .contenedor{
     display: flex;
     height: 100px;
@@ -23,17 +27,7 @@
     color: var(--lightColor);
 }
 
-.home:hover{
-    color: var(--lightColor);
-    font-size: 150%;
-}
-
-.register:hover{
-    color: var(--lightColor);
-    font-size: 150%;
-}
-
-.profile:hover{
+.linkMenu:hover{
     color: var(--lightColor);
     font-size: 150%;
 }

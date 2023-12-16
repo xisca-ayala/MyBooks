@@ -1,0 +1,76 @@
+
+
+.head{
+    height: 16vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title{
+    text-align: center;
+    margin-top: 5px;
+    font-family: var(--font-primary);
+   
+}
+.container{
+    min-height: 70vh;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%; 
+}
+
+.bookCard{
+    background-color: var(--lightColor);
+    border-radius: 30px;
+    height: 500px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; 
+    box-shadow: 5px 5px 5px rgb(115, 115, 181);
+}
+
+.imgBook{
+     overflow: hidden;
+}
+
+img{
+    height: 250px;
+    width: 300px;
+    object-fit: cover; 
+    margin-left: 25px;
+    margin-right: 25px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px  rgb(123, 81, 81);
+}
+
+.datasBook{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    
+}
+
+.titleBook{
+    margin:20px;
+    font-family: var(--font-secundary);
+
+}
+
+.dataBook{
+    margin-top: 10px;
+    font-family: var(--font-primary);
+
+}
+
+button{
+    width: 100px;
+    margin-left: 120px;
+    margin-right:120px;
+    box-shadow: 5px 5px 5px rgb(123, 81, 81);
+
+}
+

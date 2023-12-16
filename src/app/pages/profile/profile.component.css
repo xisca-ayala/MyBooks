@@ -1,3 +1,7 @@
+*{
+  font-family: var(--font-primary);
+}
+
 .container{
     display: flex;
     flex-direction: row;
@@ -186,9 +190,9 @@ button {
 /* boton   */
 
 .class1{
-  color: red;
+  color: #ff0000;
 }
 
 .class2{
-  color: green; 
+  color: #008000; 
 }

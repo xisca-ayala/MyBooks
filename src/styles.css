@@ -1,12 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
   @import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Kalnia&family=Quicksand:wght@300&family=Roboto+Mono:wght@300&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Kalnia&family=Montserrat:wght@200&family=Quicksand:wght@300&family=Roboto+Mono:wght@300&display=swap');
+
 
 
   *{
     margin: 0;
     padding: 0;
     width: 100%;
+
 }
 
 :root{
@@ -19,10 +22,9 @@
 
     --font-size-base: 16px;
     --font-size-title:30px;
-    --font-base1: 'Hedvig Letters Serif', serif;
-    --font-base2: 'Kalnia', serif;
-    --font-base3: 'Quicksand', sans-serif;
-    --font-base4: 'Roboto Mono', monospace;
+    --font-secundary: 'Kalnia', serif;
+    --font-primary: 'Quicksand', sans-serif;
+
 
     
 

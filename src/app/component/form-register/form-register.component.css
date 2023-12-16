@@ -1,4 +1,6 @@
-
+*{
+    font-family: var(--font-primary);
+}
 
 .form{
     height: 40vh;
