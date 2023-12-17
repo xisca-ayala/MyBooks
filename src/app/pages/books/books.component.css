@@ -1,5 +1,4 @@
 
-
 .head{
     height: 16vh;
     display: flex;
@@ -18,10 +17,12 @@
     width: 80%;
     margin-left: 10%;
     margin-right: 10%; 
+    display: flex;
+    flex-direction: row;
 }
 
 .bookCard{
-    background-color: var(--lightColor);
+    background: linear-gradient(180deg, rgba(166,221,215,0.3688068977591037) 0%, rgba(50,51,113,1) 100%);
     border-radius: 30px;
     height: 500px;
     width: 350px;
@@ -29,6 +30,7 @@
     flex-direction: column;
     justify-content: space-evenly; 
     box-shadow: 5px 5px 5px rgb(115, 115, 181);
+    margin: 25px;
 }
 
 .imgBook{
@@ -51,13 +53,14 @@ img{
     justify-content: space-between;
     margin-left: 10px;
     margin-bottom: 10px;
+    color: var(--lightColor);
     
 }
 
 .titleBook{
-    margin:20px;
     font-family: var(--font-secundary);
-
+    text-shadow:1px 1px 1px var(--darkColor) ;
+    text-align: center;
 }
 
 .dataBook{
@@ -66,11 +69,53 @@ img{
 
 }
 
-button{
+.button{
     width: 100px;
     margin-left: 120px;
     margin-right:120px;
     box-shadow: 5px 5px 5px rgb(123, 81, 81);
+}
+
+ul{
+    list-style-type: none;
+}
+
+.formContainer{
+    height: 40vh ;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
 
 }
 
+
+.form{
+    height: 30vh;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: var(--darkColor);
+}
+
+.formTitle{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: var(--lightColor);
+}
+
+input{
+    width: 300px;
+    margin-top: 10px;
+
+}
+
+.button2{
+    width: 100px;
+    margin-top: 20px;
+    background-color: var(--lightColor);
+}

@@ -1,20 +1,37 @@
 <div class="head">
-    <h1 class="title">TODOS LOS LIBROS</h1>  
+    <h1 class="title">TODOS LOS LIBROS
+    </h1>  
 </div>
-<div class="container">
-    <div class="bookCard">
-        <h2 class="titleBook">El día que Nietzsche lloró</h2>
-        <div class="imgBook">
-            <img src="/assets/img/imgBooks/Nietzsche.jpeg" alt="nietzsche">
+<ul class="container">
+    <li *ngFor="let book of books">
+        <div *ngIf="books.lenght===0">No hay libros
         </div>
-        <div class="datasBook">
-            <div class="dataBook">Escritor/a: </div>
-            <div class="dataBook">Código: </div>
-            <div class="dataBook">Precio: </div>
+        <div class="bookCard">
+            <h2 class="titleBook dataBook">{{book.title}}</h2>
+            <div class="imgBook">
+                <img src="{{book.photo}}" alt="portada">
+            </div>
+            <div class="datasBook">
+                <div class="dataBook">Escritor/a: {{book.author}}</div>
+                <div class="dataBook">Código: {{book.id_books}} </div>
+                <div class="dataBook">Tapa: {{book.type}}</div>
+                <div class="dataBook">Precio: {{book.price}}</div>
+            </div>
+            <div>
+                <button class="button">Comprar</button>
+            </div>
         </div>
-        <div>
-            <button>Comprar</button>
-        </div>
-    </div>
-
+    </li>
+</ul>
+<div class="formContainer">
+    <form action="" class="form">
+        <h2 class="formTitle">Añadir libro</h2>
+        <input placeholder="Título" type="text">
+        <input placeholder="Autor" type="text">
+        <input placeholder="Tapa blanda/dura" type="text">
+        <input placeholder="Precio" type="number">
+        <input placeholder="Url photo" type="text">
+        <input placeholder="Código libro" type="number">
+        <button class="button2">Insertar libro</button>
+    </form>
 </div>
