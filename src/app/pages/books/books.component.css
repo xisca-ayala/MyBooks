@@ -13,12 +13,13 @@
    
 }
 .container{
-    min-height: 70vh;
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%; 
+    min-height: 65vh;
+    max-width: 2000px;
+    margin-left: 200px;
+    margin-right: 200px; 
     display: flex;
     flex-direction: row;
+   
 }
 
 .bookCard{
@@ -30,7 +31,7 @@
     flex-direction: column;
     justify-content: space-evenly; 
     box-shadow: 5px 5px 5px rgb(115, 115, 181);
-    margin: 25px;
+    margin: 20px;
 }
 
 .imgBook{
@@ -69,11 +70,11 @@ img{
 
 }
 
-.button{
+.button2{
     width: 100px;
     margin-left: 120px;
     margin-right:120px;
-    box-shadow: 5px 5px 5px rgb(123, 81, 81);
+    margin-top: 20px;
 }
 
 ul{
@@ -114,8 +115,21 @@ input{
 
 }
 
-.button2{
+
+.buttonOdd{
+    background-color: green;
+    color: white;
     width: 100px;
     margin-top: 20px;
-    background-color: var(--lightColor);
+    margin-left: 120px;
+
+   
+}
+
+.buttonEven{
+    background-color: blue;
+    color:white;
+    width: 100px;
+    margin-top: 20px;
+    margin-left: 120px;
 }

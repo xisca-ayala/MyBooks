@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/book';
 
 
+
+
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.css']
 })
+
 export class BooksComponent implements OnInit{
 
   books: Book[];
@@ -19,6 +22,13 @@ export class BooksComponent implements OnInit{
       new Book("Reina roja", "dura ", "Juan Gómez-Jurado", 21,"/assets/img/imgBooks/reina.jpg", 113 ),
 
     ];
+  }
+
+  sendInfo(newTitle:string, newAuthor:string, newType:string, newPrice:number, newPhoto:string, newId_card:number){
+    let newBook = new Book(newTitle, newType, newAuthor, newPrice, newPhoto, newId_card);
+
+    this.books.push(newBook); 
+
   }
 
 

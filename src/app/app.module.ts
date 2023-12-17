@@ -11,6 +11,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { BooksComponent } from './pages/books/books.component';
+import { PipeRefPipe } from './pipes/pipe-ref.pipe';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { BooksComponent } from './pages/books/books.component';
     RegisterComponent,
     ProfileComponent,
     BooksComponent,
+    PipeRefPipe,
   ],
 
   imports: [
