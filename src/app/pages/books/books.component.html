@@ -2,11 +2,10 @@
     <h1 class="title">TODOS LOS LIBROS
     </h1>  
 </div>
-<ul class="container">
-    <li *ngFor="let book of books; let even = even">
-        <div *ngIf="books.lenght===0">No hay libros
-        </div>
-        <div class="bookCard">
+<div *ngIf="books.length===0">No hay libros
+</div>
+<div class="container">
+    <div *ngFor="let book of books; let even = even" class="bookCard">
             <h2 class="titleBook dataBook">{{book.title}}</h2>
             <div class="imgBook">
                 <img src="{{book.photo}}" alt="portada">
@@ -21,8 +20,7 @@
                 <button [ngClass]="{'buttonEven' :even, 'buttonOdd': !even}">Comprar</button>
             </div>
         </div>
-    </li>
-</ul>
+    </div>
 <div class="formContainer">
     <form action="" class="form">
         <h2 class="formTitle">Añadir libro</h2>
