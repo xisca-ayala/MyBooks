@@ -12,71 +12,6 @@
     font-family: var(--font-primary);
    
 }
-.container{
-    min-height: 65vh;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.bookCard{
-    background: linear-gradient(180deg, rgba(166,221,215,0.3688068977591037) 0%, rgba(50,51,113,1) 100%);
-    border-radius: 30px;
-    height: 500px;
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly; 
-    box-shadow: 5px 5px 5px rgb(115, 115, 181);
-    margin: 20px;
-}
-
-.imgBook{
-     overflow: hidden;
-}
-
-img{
-    height: 250px;
-    width: 300px;
-    object-fit: cover; 
-    margin-left: 25px;
-    margin-right: 25px;
-    border-radius: 20px;
-    box-shadow: 5px 5px 5px  rgb(123, 81, 81);
-}
-
-.datasBook{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    color: var(--lightColor);  
-}
-
-.titleBook{
-    font-family: var(--font-secundary);
-    text-shadow:1px 1px 1px var(--darkColor) ;
-    text-align: center;
-}
-
-.dataBook{
-    margin-top: 10px;
-    font-family: var(--font-primary);
-}
-
-.button2{
-    width: 100px;
-    margin-left: 120px;
-    margin-right:120px;
-    margin-top: 20px;
-}
-
-ul{
-    list-style-type: none;
-}
 
 .formContainer{
     height: 40vh ;
@@ -88,7 +23,7 @@ ul{
 
 
 .form{
-    height: 30vh;
+    height: 35vh;
     width: 1000px;
     display: flex;
     flex-direction: column;
@@ -110,19 +45,7 @@ input{
     margin-top: 10px;
 }
 
-
-.buttonOdd{
-    background-color: green;
-    color: white;
+button{
     width: 100px;
-    margin-top: 20px;
-    margin-left: 120px;  
-}
-
-.buttonEven{
-    background-color: blue;
-    color:white;
-    width: 100px;
-    margin-top: 20px;
-    margin-left: 120px;
+    margin-top: 10px;
 }

@@ -1,0 +1,20 @@
+<!-- revisar -->
+<!-- ng for index i button -->
+<div class="container">
+    <div *ngFor="let book of bookPadre; let even = even" class="bookCard">
+        <button class="deleteCard" (click)="deleteCard()">x</button>
+        <h2 class="titleBook dataBook">{{bookPadre.title}}</h2>
+        <div class="imgBook">
+            <img src="{{bookPadre.photo}}" alt="portada">
+        </div>
+        <div class="datasBook">
+            <div class="dataBook">Escritor/a: {{bookPadre.author}}</div>
+            <div class="dataBook">Código: {{bookPadre.id_books | pipeRef}} </div>
+            <div class="dataBook">Tapa: {{bookPadre.type}}</div>
+            <div class="dataBook">Precio: {{bookPadre.price}}</div>
+        </div>
+        <div class="buttonBox">
+            <button [ngClass]="{'buttonEven' :even, 'buttonOdd': !even}">Comprar</button>
+        </div>
+    </div>
+</div>

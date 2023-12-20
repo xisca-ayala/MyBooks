@@ -12,6 +12,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { BooksComponent } from './pages/books/books.component';
 import { PipeRefPipe } from './pipes/pipe-ref.pipe';
+import { CardComponent } from './component/card/card.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { PipeRefPipe } from './pipes/pipe-ref.pipe';
     ProfileComponent,
     BooksComponent,
     PipeRefPipe,
+    CardComponent,
   ],
 
   imports: [

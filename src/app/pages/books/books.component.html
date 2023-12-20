@@ -4,23 +4,9 @@
 </div>
 <div *ngIf="books.length===0">No hay libros
 </div>
-<div class="container">
-    <div *ngFor="let book of books; let even = even" class="bookCard">
-            <h2 class="titleBook dataBook">{{book.title}}</h2>
-            <div class="imgBook">
-                <img src="{{book.photo}}" alt="portada">
-            </div>
-            <div class="datasBook">
-                <div class="dataBook">Escritor/a: {{book.author}}</div>
-                <div class="dataBook">Código: {{book.id_books | pipeRef}} </div>
-                <div class="dataBook">Tapa: {{book.type}}</div>
-                <div class="dataBook">Precio: {{book.price}}</div>
-            </div>
-            <div class="buttonBox">
-                <button [ngClass]="{'buttonEven' :even, 'buttonOdd': !even}">Comprar</button>
-            </div>
-        </div>
-    </div>
+<div *ngFor="let book of books; let even = even" class="bookCard">
+  <app-card [bookPadre]="books"></app-card>
+</div>
 <div class="formContainer">
     <form action="" class="form">
         <h2 class="formTitle">Añadir libro</h2>
