@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { BooksComponent } from './pages/books/books.component';
 import { PipeRefPipe } from './pipes/pipe-ref.pipe';
 import { CardComponent } from './component/card/card.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { CardComponent } from './component/card/card.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

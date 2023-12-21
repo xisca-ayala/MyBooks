@@ -4,9 +4,9 @@
 </div>
 <div *ngIf="books.length===0">No hay libros
 </div>
-<div *ngFor="let book of books; let even = even" class="bookCard">
-  <app-card [bookPadre]="books"></app-card>
-</div>
+
+<app-card [bookPadre]="books"></app-card>
+
 <div class="formContainer">
     <form action="" class="form">
         <h2 class="formTitle">Añadir libro</h2>

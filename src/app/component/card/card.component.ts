@@ -1,5 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Book } from 'src/app/models/book';
+import { CommonModule } from '@angular/common';
+
+
 
 
 
@@ -9,12 +12,16 @@ import { Book } from 'src/app/models/book';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit{
-  @Input() bookPadre: Book;
+  @Input() bookPadre: Book[]; 
+  
+  // deleteCard():{
+
+  // books.splices(this.bookPadre); 
 
   constructor(){ 
-
-
   }
+
   ngOnInit(): void {
+     console.log(this.bookPadre);
   }
 }

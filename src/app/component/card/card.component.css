@@ -1,10 +1,12 @@
-.container{
+
+:host{
+    background-color: grey;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     min-height: 65vh;
     justify-content: space-around;
-}
+} 
 
 .bookCard{
     background: linear-gradient(180deg, rgba(166,221,215,0.3688068977591037) 0%, rgba(50,51,113,1) 100%);
@@ -62,19 +64,18 @@ img{
     font-family: var(--font-primary);
 }
 
-.button2{
+.buttonBox{
     width: 100px;
     margin-left: 120px;
     margin-right:120px;
     margin-top: 20px;
 }
 
-.buttonOdd{
+.buttonOld{
     background-color: green;
     color: white;
     width: 100px;
     margin-top: 20px;
-    margin-left: 120px;  
 }
 
 .buttonEven{
@@ -82,5 +83,4 @@ img{
     color:white;
     width: 100px;
     margin-top: 20px;
-    margin-left: 120px;
 }
