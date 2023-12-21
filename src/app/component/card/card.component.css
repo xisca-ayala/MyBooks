@@ -1,6 +1,5 @@
 
 :host{
-    background-color: grey;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -11,7 +10,7 @@
 .bookCard{
     background: linear-gradient(180deg, rgba(166,221,215,0.3688068977591037) 0%, rgba(50,51,113,1) 100%);
     border-radius: 30px;
-    height: 550px;
+    height: 610px;
     width: 350px;
     display: flex;
     flex-direction: column;
@@ -27,6 +26,7 @@
     border-color: cornflowerblue;
     color: var(--lightColor);
     margin-left: 300px;
+    margin-top: 20px;
 }
 
 .imgBook{
@@ -75,12 +75,12 @@ img{
     background-color: green;
     color: white;
     width: 100px;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .buttonEven{
     background-color: blue;
     color:white;
     width: 100px;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }

@@ -1,7 +1,7 @@
 
- <!-- click)="deleteCard(this.card)" -->
-<div *ngFor="let book of this.bookPadre; let even = even" class="bookCard" #card >
-    <button class="deleteCard" >x</button>
+ <!--  -->
+<div *ngFor="let book of this.bookPadre; let even = even" class="bookCard" >
+    <button class="deleteCard" (click)="deleteCard(this.book)">x</button>
     <h2 class="titleBook dataBook">{{book.title}}</h2>
     <div class="imgBook">
         <img src="{{book.photo}}" alt="portada">

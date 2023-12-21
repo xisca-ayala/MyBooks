@@ -5,7 +5,7 @@
 <div *ngIf="books.length===0">No hay libros
 </div>
 
-<app-card [bookPadre]="books"></app-card>
+<app-card [bookPadre]="books" (delete)="deleteCard($event)"></app-card>
 
 <div class="formContainer">
     <form action="" class="form">

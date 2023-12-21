@@ -27,7 +27,10 @@ export class BooksComponent implements OnInit{
     let newBook = new Book(newTitle, newType, newAuthor, newPrice, newPhoto, newId_card);
 
     this.books.push(newBook); 
+  }
 
+  deleteCard(card: string){
+    console.log(); 
   }
 
 

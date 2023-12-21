@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 
 
 
-
-
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -13,12 +11,17 @@ import { CommonModule } from '@angular/common';
 })
 export class CardComponent implements OnInit{
   @Input() bookPadre: Book[]; 
+  @Output() delete = new EventEmitter <string> (); 
   
-  // deleteCard():{
 
-  // books.splices(this.bookPadre); 
 
   constructor(){ 
+
+  }
+
+  deleteCard(){
+    let result: Book[] = this.bookPadre.filter(book => this.bookPadre !== this.bookPadre); 
+    
   }
 
   ngOnInit(): void {
