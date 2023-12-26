@@ -14,6 +14,9 @@ import { BooksComponent } from './pages/books/books.component';
 import { PipeRefPipe } from './pipes/pipe-ref.pipe';
 import { CardComponent } from './component/card/card.component';
 import { CommonModule } from '@angular/common';
+import { AddBooksComponent } from './pages/add-books/add-books.component';
+import { UpdateBookComponent } from './pages/update-book/update-book.component';
+import { BooksService } from './shared/books.service';
 
 
 @NgModule({
@@ -28,6 +31,8 @@ import { CommonModule } from '@angular/common';
     BooksComponent,
     PipeRefPipe,
     CardComponent,
+    AddBooksComponent,
+    UpdateBookComponent,
   ],
 
   imports: [
@@ -36,7 +41,7 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     CommonModule
   ],
-  providers: [],
+  providers: [BooksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

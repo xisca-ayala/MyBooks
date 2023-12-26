@@ -7,15 +7,3 @@
 
 <app-card [bookPadre]="books" (delete)="deleteCard($event)"></app-card>
 
-<div class="formContainer">
-    <form action="" class="form">
-        <h2 class="formTitle">Añadir libro</h2>
-        <input placeholder="Título" #input1 type="text">
-        <input placeholder="Autor" #input2 type="text">
-        <input placeholder="Tapa blanda/dura" #input3 type="text">
-        <input placeholder="Precio" #input4 type="number">
-        <input placeholder="Url photo" #input5 type="text">
-        <input placeholder="Código libro" #input6 type="number">
-        <button class="button2" (click)="sendInfo(input1.value, input2.value, input3.value, input4.value, input5.value, input6.value)">Insertar libro</button>
-    </form>
-</div>

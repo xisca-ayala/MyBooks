@@ -9,7 +9,6 @@
     margin: 0;
     padding: 0;
     width: 100%;
-
 }
 
 :root{
@@ -24,9 +23,4 @@
     --font-size-title:30px;
     --font-secundary: 'Kalnia', serif;
     --font-primary: 'Quicksand', sans-serif;
-
-
-    
-
-
 }
