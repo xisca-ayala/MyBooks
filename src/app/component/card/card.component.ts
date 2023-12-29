@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Book } from 'src/app/models/book';
-import { CommonModule } from '@angular/common';
+import { BooksService } from 'src/app/shared/books.service';
 
 
 
@@ -10,21 +10,15 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit{
-  @Input() bookPadre: Book[]; 
-  @Output() delete = new EventEmitter <string> (); 
-  
 
+  public books: Book[] = this.myBooksService.getAll();
 
-  constructor(){ 
-
-  }
-
-  deleteCard(){
-    let result: Book[] = this.bookPadre.filter(book => this.bookPadre !== this.bookPadre); 
+  constructor(public myBooksService: BooksService){ 
     
   }
 
+
   ngOnInit(): void {
-     console.log(this.bookPadre);
+  
   }
 }

@@ -2,8 +2,8 @@
     <h1 class="title">TODOS LOS LIBROS
     </h1>  
 </div>
-<div *ngIf="books.length===0">No hay libros
-</div>
+<div *ngIf="myBooksService.books.length===0">No hay libros
+</div> 
 
-<app-card [bookPadre]="books" (delete)="deleteCard($event)"></app-card>
+<app-card></app-card>
 

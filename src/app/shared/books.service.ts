@@ -5,7 +5,11 @@ import { Book } from '../models/book';
   providedIn: 'root'
 })
 export class BooksService {
-  private books: Book[]; 
+  public books: Book[]= [
+    new Book("El día que Nietzsche lloró", "blanda", "Irvin D. Yalom", 19, "/assets/img/imgBooks/Nietzsche.jpeg", 111 ),
+    new Book("El monje que vendió su ferrari", "blanda", "Robin Sharma", 11, "/assets/img/imgBooks/monje.jpg", 112),
+    new Book("Reina roja", "dura ", "Juan Gómez-Jurado", 21,"/assets/img/imgBooks/reina.jpg", 113 )
+  ]; 
 
   constructor() { }
 
@@ -49,3 +53,7 @@ export class BooksService {
   //   }
   // }
 }
+
+let myBooksService = new BooksService(); 
+
+

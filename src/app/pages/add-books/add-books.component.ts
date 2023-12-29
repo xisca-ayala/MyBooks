@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/shared/books.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { BooksService } from 'src/app/shared/books.service';
   templateUrl: './add-books.component.html',
   styleUrls: ['./add-books.component.css']
 })
-export class AddBooksComponent {
+export class AddBooksComponent implements OnInit{
 
   constructor(private myService: BooksService){}
 
@@ -16,5 +16,7 @@ export class AddBooksComponent {
   // }
 
   // this.myService.add()
-
+  ngOnInit(): void {
+    
+  }
 }

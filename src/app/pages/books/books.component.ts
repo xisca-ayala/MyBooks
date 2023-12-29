@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/book';
-
+import { BooksService } from 'src/app/shared/books.service';
 
 
 
@@ -12,28 +12,15 @@ import { Book } from 'src/app/models/book';
 
 export class BooksComponent implements OnInit{
 
-  books: Book[];
+  
+
   even: boolean;
 
-  constructor(){
-    this.books = [
-      new Book("El día que Nietzsche lloró", "blanda", "Irvin D. Yalom", 19, "/assets/img/imgBooks/Nietzsche.jpeg", 111 ),
-      new Book("El monje que vendió su ferrari", "blanda", "Robin Sharma", 11, "/assets/img/imgBooks/monje.jpg", 112),
-      new Book("Reina roja", "dura ", "Juan Gómez-Jurado", 21,"/assets/img/imgBooks/reina.jpg", 113 ),
-    ];
+  constructor(public myBooksService: BooksService){
+   
   }
-
-  sendInfo(newTitle:string, newAuthor:string, newType:string, newPrice:number, newPhoto:string, newId_card:number){
-    let newBook = new Book(newTitle, newType, newAuthor, newPrice, newPhoto, newId_card);
-
-    this.books.push(newBook); 
-  }
-
-  deleteCard(card: string){
-    console.log(); 
-  }
-
 
   ngOnInit(): void{
+ 
   }
 }
