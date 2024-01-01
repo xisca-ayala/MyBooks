@@ -7,8 +7,8 @@ import { Book } from '../models/book';
 })
 export class PipeRefPipe implements PipeTransform {
 
-  transform(id_books: number): string {
-    let result = "Ref-" + id_books ;
+  transform(id_book: number): string {
+    let result = "Ref-" + id_book;
     return result;
   }
 

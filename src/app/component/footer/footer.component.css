@@ -10,3 +10,8 @@
     background-color: var(--darkColor);
     color: var(--lightColor);
 }
+
+.linkFooter{
+    text-decoration: none;
+    color: var(--lightColor);
+}

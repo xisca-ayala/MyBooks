@@ -8,8 +8,9 @@
 } 
 
 .bookCard{
-    background: linear-gradient(180deg, rgba(166,221,215,0.3688068977591037) 0%, rgba(50,51,113,1) 100%);
+    background: linear-gradient(180deg, rgba(166,221,215,0.3688068977591037) 0%, #8707ff,  rgba(50,51,113,1) 100%);
     border-radius: 30px;
+    border-left: 20px solid black;
     height: 610px;
     width: 350px;
     display: flex;
@@ -20,13 +21,22 @@
 }
 
 .deleteCard{
-    width: 20px;
-    height: 20px;
-    background-color: cornflowerblue;
-    border-color: cornflowerblue;
-    color: var(--lightColor);
-    margin-left: 300px;
+    margin-left: 280px;
     margin-top: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--cardsColor);
+    color: var(--lightColor);
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition-duration: .3s;
+    overflow: hidden;
+    position: relative;
 }
 
 .imgBook{
@@ -34,13 +44,13 @@
 }
 
 img{
-    height: 250px;
+    height: 240px;
     width: 300px;
     object-fit: cover; 
-    margin-left: 25px;
+    margin-left: 10px;
     margin-right: 25px;
     border-radius: 20px;
-    box-shadow: 5px 5px 5px  rgb(123, 81, 81);
+    box-shadow: 5px 5px 5px  rgb(132, 53, 126);
 }
 
 .datasBook{
@@ -66,7 +76,7 @@ img{
 
 .buttonBox{
     width: 100px;
-    margin-left: 120px;
+    margin-left: 110px;
     margin-right:120px;
     margin-top: 20px;
 }
@@ -76,6 +86,7 @@ img{
     color: white;
     width: 100px;
     margin-bottom: 20px;
+    
 }
 
 .buttonEven{

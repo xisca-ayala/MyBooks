@@ -12,13 +12,16 @@ import { BooksService } from 'src/app/shared/books.service';
 
 export class BooksComponent implements OnInit{
 
-  
+  public books: Book[] = this.myBooksService.getAll(); 
+  public book:Book; 
+
 
   even: boolean;
 
   constructor(public myBooksService: BooksService){
-   
+
   }
+  
 
   ngOnInit(): void{
  

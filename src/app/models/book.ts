@@ -6,8 +6,8 @@ export class Book {
         public author: string, 
         public price: number,
         public photo: string,
-        public id_books?:number,
-        public id_user?: number ){   
-
+        public id_book?:number,
+        public id_user?: number ){
+            
         }  
 }
