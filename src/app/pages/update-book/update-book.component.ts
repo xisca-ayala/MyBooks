@@ -9,13 +9,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./update-book.component.css']
 })
 export class UpdateBookComponent implements OnInit {
-
+  
+  public books: Book[] =[];
+  
 
   constructor(public myBooksService: BooksService, private router: Router){
+    this.books = this.myBooksService.getAll(); 
   }
 
+
   editBook(title:string, type:string, author:string, price:number, photo:string, id_book:number){
-  this.myBooksService.edit(new Book(title,type,author,price,photo,id_book));
+    this.myBooksService.edit(new Book(title, type, author, price, photo, id_book));
   }
 
   goPlace(){

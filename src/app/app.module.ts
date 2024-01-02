@@ -9,7 +9,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { FormRegisterComponent } from './component/form-register/form-register.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BooksComponent } from './pages/books/books.component';
 import { PipeRefPipe } from './pipes/pipe-ref.pipe';
 import { CardComponent } from './component/card/card.component';
@@ -17,6 +17,9 @@ import { CommonModule } from '@angular/common';
 import { AddBooksComponent } from './pages/add-books/add-books.component';
 import { UpdateBookComponent } from './pages/update-book/update-book.component';
 import { BooksService } from './shared/books.service';
+import { LoginComponent } from './pages/login/login.component';
+import { FormLoginComponent } from './component/form-login/form-login.component';
+
 
 
 @NgModule({
@@ -33,13 +36,17 @@ import { BooksService } from './shared/books.service';
     CardComponent,
     AddBooksComponent,
     UpdateBookComponent,
+    LoginComponent,
+    FormLoginComponent,
+    
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   providers: [BooksService],
   bootstrap: [AppComponent]

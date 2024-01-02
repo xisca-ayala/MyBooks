@@ -34,17 +34,17 @@ export class BooksService {
     this.books.push(book);
   }
 
-  public edit(book: Book): boolean{
+  public edit(bookParam: Book): boolean{
     let result: boolean = false;
     this.books.forEach(function(book) {
-      if (book.id_book === book.id_book) {
-        book.author = book.author;
-        book.id_book = book.id_book;
-        book.id_user = book.id_user;
-        book.photo = book.photo;
-        book.price = book.price;
-        book.title = book.title;
-        book.type = book.type;
+      if (book.id_book === bookParam.id_book) {
+        book.author = bookParam.author;
+        book.id_book = bookParam.id_book;
+        book.id_user = bookParam.id_user;
+        book.photo = bookParam.photo;
+        book.price = bookParam.price;
+        book.title = bookParam.title;
+        book.type = bookParam.type;
         result = true;
       }
     });
