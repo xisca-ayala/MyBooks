@@ -6,8 +6,7 @@
     No hay libros.
 </div>
 <div class="container">
-    <input type="text" name="text" class="input" placeholder="Busca tu libro con el id_number..." (keyup)="this.myBooksService.getOne(book.id_book)" >
-
+    <input type="text" name="text" class="input" placeholder="Busca tu libro con el id_number..." #input (keypress)="this.myBooksService.getOne(input.value)" >
 <app-card></app-card>
 
 </div>

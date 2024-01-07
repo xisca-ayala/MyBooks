@@ -20,7 +20,7 @@ export class BooksService {
   public getOne(id_book: number): Book{
     let result: Book;
     this.books.forEach(function (book) {
-      if (book.id_book === id_book) {
+      if (book.id_book == id_book) {
         result = book;
       }
     });
@@ -37,7 +37,7 @@ export class BooksService {
   public edit(bookParam: Book): boolean{
     let result: boolean = false;
     this.books.forEach(function(book) {
-      if (book.id_book === bookParam.id_book) {
+      if (book.id_book == bookParam.id_book) {
         book.author = bookParam.author;
         book.id_book = bookParam.id_book;
         book.id_user = bookParam.id_user;
@@ -52,13 +52,10 @@ export class BooksService {
   }
 
   public delete(id_book: number): boolean{
-    let result: boolean = false;
-    this.books.forEach(function(book, i){
-      if (book.id_book === id_book) {
-        this.books.splice(i, 1);
-        result = true;
-      }
-    });
+    let result: boolean;
+    let length = this.books.length;
+    this.books = this.books.filter(book => book.id_book !== id_book);
+    this.books.length !== length ? result = false : result = true;
     return result;
   }
 
