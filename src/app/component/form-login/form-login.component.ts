@@ -9,7 +9,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 export class FormLoginComponent implements OnInit {
   public loginForm: FormGroup; 
+
   constructor (private formBuilder: FormBuilder){
+    // buildform() es un metode que jo m'he creat
     this.buildForm(); 
   }
 
@@ -32,9 +34,13 @@ export class FormLoginComponent implements OnInit {
     let minPassLength = 8;
 
     this.loginForm = this.formBuilder.group({
+      // definesc aqui les validacions, no al final de l'input al html, dins l'array hi ha una coma, perque abans de la coma hi ha el valor inicial, com volem que sigui en blanc, hi ha una coma,després un validador, o un array de validadors
+      // tambe hi pot haver una validacio inventada per jo: this.nom del metode que faig
       email: [, [Validators.required, Validators.email]],
       password:[, [Validators.required, Validators.minLength(minPassLength)]]
     });
+
+    console.log(this.loginForm.value)
 
   }
 }
