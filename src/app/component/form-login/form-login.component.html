@@ -1,12 +1,15 @@
 <div class="container">
-    <form class="form form-group" (ngSubmit)="onSubmit" [formGroup]="loginForm">
+    <form class="form form-group" [formGroup]="loginForm">
         <label for="email">Email</label>
-        <input type="email" class="form-control" formControlName="email" required [ngClass]="{'is-valid':(loginForm.get('email').dirty  && !loginForm.get('email').valid)}">
-        <div *ngIf="loginForm.get('email').invalid" class="invalid-feedback">El email es necesario.</div>
+        <input type="email" class="form-control" formControlName="email" [ngClass]="{'is-valid':(loginForm.get('email').dirty  && !loginForm.get('email').valid)}">
+        <div *ngIf="!loginForm.get('email').valid" class="invalid-feedback">
+            El email es necesario.</div>
         <label for="password">Contraseña</label>
-        <input type="password" class="form-control" formControlName="password" required [ngClass]="{'is-valid':(loginForm.get('password').dirty )}">
-        <div *ngIf="loginForm.get('password').invalid" class="invalid-feedback">La contraseña es necesaria.</div>
+        <input type="password" class="form-control" formControlName="password" [ngClass]="{'is-valid':(loginForm.get('password').dirty || loginForm.get('password').touched) && !loginForm.get('password').valid}">
+        <div *ngIf="!loginForm.get('password').valid" class="invalid-feedback">
+           <div *ngIf="loginForm.get('password').errors.required"> La contraseña es necesaria.</div>
+           <div *ngIf="loginForm.get('password').errors.minLength"> La contraseña tiene que tener almenos 8 carácteres.</div>
+        </div>
         <button class="button btn btn-success" (click)="register()" [disabled]="loginForm.invalid">Envia</button>
-       
     </form>
 </div>
