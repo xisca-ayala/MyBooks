@@ -16,13 +16,8 @@ export class FormLoginComponent implements OnInit {
   }
 
 
-
   ngOnInit(): void {
     
-  }
-
-  onSubmit():void{
-    console.log('hola')
   }
 
   public register(){
@@ -40,7 +35,6 @@ export class FormLoginComponent implements OnInit {
       password:[, [Validators.required, Validators.minLength(minPassLength)]]
     });
 
-    console.log(this.loginForm.value)
 
   }
 }

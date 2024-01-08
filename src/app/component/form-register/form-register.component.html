@@ -1,29 +1,48 @@
 
-<div class="form">
-    <div>RELLENE EL FORMULARIO</div>
-    <div>
-        <label for="name">Nombre:</label>
-        <input type="text" id="name">
+<div class="container">
+    <h2 class="text-center">RELLENE EL FORMULARIO DE REGISTRO</h2>
+    <div class="boxForm">
+        <form class="form"[formGroup]="registerForm">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" class="form-control" formControlName="name" [ngClass]="{'is-invalid': (registerForm.get('name').dirty || registerForm.get('name').touched) && !registerForm.get('name').valid}">
+                <div *ngIf="!registerForm.get('name').valid" class="invalid-feedback">El nombre es necesario.</div>
+            </div>
+            <div class="form-group">
+                <label for="secondName">Apellido:</label>
+                <input type="text" class="form-control" formControlName="secondName" [ngClass]="{'is-invalid': (registerForm.get('secondName').dirty || registerForm.get('secondName').touched) && !registerForm.get('secondName').valid}">
+                <div *ngIf="!registerForm.get('secondName').valid" class="invalid-feedback">El apellido es necesario.</div>
+            </div>
+            <div class="form-group"> 
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" formControlName="email" [ngClass]="{'is-invalid': (registerForm.get('email').dirty || registerForm.get('email').touched) && !registerForm.get('email').valid}">
+                <div *ngIf="!registerForm.get('email').valid" class="invalid-feedback">
+                    <div *ngIf="registerForm.get('email').errors.required">El email es necesario.</div>
+                    <div *ngIf="registerForm.get('email').errors.email">Dirección email incorrecta.</div>
+                </div>
+            </div>
+            <div class="form-group"> 
+                <label for="url">Url:</label>
+                <input type="url" class="form-control" formControlName="url" [ngClass]="{'is-invalid': (registerForm.get('url').dirty || registerForm.get('url').touched) && !registerForm.get('url').valid}">
+                <div *ngIf="!registerForm.get('url').valid" class="invalid-feedback">La url de la foto es necesaria.</div>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" class="form-control" formControlName="password" [ngClass]="{'is-invalid': (registerForm.get('password').dirty || registerForm.get('password').touched) && !registerForm.get('password').valid}">
+                <div *ngIf="!registerForm.get('password').valid" class="invalid-feedback">
+                    <div *ngIf="registerForm.get('password').errors.required">La contraseña es necesaria.</div>
+                    <div *ngIf="registerForm.get('password').errors.minLength">La contraseña tiene que tener un mínimo de 8 carácteres.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="repeatPassword">Repetir Contraseña:</label>
+                <input type="password" class="form-control" formControlName="repeatPassword" [ngClass]="{'is-invalid': (registerForm.get('repeatPassword').dirty || registerForm.get('repeatPassword').touched) && !registerForm.get('repeatPassword').valid}" >
+                <div *ngIf="!registerForm.get('repeatPassword').valid" class="invalid-feedback">
+                    <div *ngIf="registerForm.get('repeatPassword').errors.required">La contraseña es necesaria.</div>
+                    <div *ngIf="registerForm.get('repeatPassword').errors.matchPassword">La contraseña tiene que ser la misma.</div>
+                </div>
+            </div> 
+            <button class="btn btn-success" (click)="register()" [disabled]="registerForm.invalid">Envia</button>
+        </form>
     </div>
-    <div>
-        <label for="secondName">Apellido:</label>
-        <input type="text" id="secondName">
-    </div>
-    <div> 
-        <label for="email">Email:</label>
-        <input type="email" id="email">
-    </div>
-    <div> 
-        <label for="url">url:</label>
-        <input type="url" id="url">
-    </div>
-    <div>
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password">
-    </div>
-    <div>
-        <label for="repeatPassword">Repetir Contraseña:</label>
-        <input type="password" id="repeatPassword">
-    </div> 
-    <button>Envia</button>
 </div>

@@ -2,28 +2,36 @@
     font-family: var(--font-primary);
 }
 
-.form{
-    height: 40vh;
-    width: 80%;
+h2{
+    margin-bottom: 30px;
+}
+.container{
     padding-top: 50px;
     padding-bottom: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content:space-around ;
-    align-items: center;
     font-size: 20px;
-    border-radius: 20px;
-    margin-left: 5%; 
+    border-radius: 20px; 
     background-color: var(--darkColor);
     color: var(--lightColor);
-    text-align: center;
     box-shadow: 0px 15px 15px gray;
 }
 
+.boxForm{
+    padding-left: 400px;
+    padding-right: 400px;
+}
+
+.form{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
 input{
-    width: 250px;
+    width: 450px;
 }
 
 button{
+    margin-top:20px;
     width: 250px;
 }
