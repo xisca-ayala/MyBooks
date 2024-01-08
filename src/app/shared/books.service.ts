@@ -55,7 +55,7 @@ export class BooksService {
     let result: boolean;
     let length = this.books.length;
     this.books = this.books.filter(book => book.id_book !== id_book);
-    this.books.length !== length ? result = false : result = true;
+    this.books.length !== length ? result = true : result = false;
     return result;
   }
 
