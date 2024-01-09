@@ -33,5 +33,7 @@
     border-radius:50%;
     background-image: url('src/assets/img/imgHome/paginas-libro.jpg');
     background-size: cover;
-    box-shadow: 10px 10px 10px grey;
+    box-shadow: 10px 10px 20px rgba(119, 220, 208, 0.369),
+    10px 0 20px #8707ff, 
+    0 20px 20px rgba(50,51,113,1);
 }

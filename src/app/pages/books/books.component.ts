@@ -13,7 +13,7 @@ import { BooksService } from 'src/app/shared/books.service';
 export class BooksComponent implements OnInit{
 
   public books: Book[] = this.myBooksService.getAll(); 
-  public book:Book; 
+  public book: Book; 
 
 
   even: boolean;
@@ -21,7 +21,14 @@ export class BooksComponent implements OnInit{
   constructor(public myBooksService: BooksService){
 
   }
-  
+
+  public getCards(id_book: number){
+    if(id_book) {
+      this.books = [this.myBooksService.getOne(id_book)];
+    } else {
+      this.books = this.myBooksService.getAll();
+    }
+  }
 
   ngOnInit(): void{
  
