@@ -13,7 +13,7 @@ export class FormLoginComponent implements OnInit {
   public loginForm: FormGroup; 
 
   constructor (private formBuilder: FormBuilder){
-    this.user = new User(this.user.name, this.user.lastName, this.user.email, this.user.url); 
+
     // buildform() es un metode que jo m'he creat
     this.buildForm(); 
   }

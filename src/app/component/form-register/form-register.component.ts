@@ -14,7 +14,7 @@ export class FormRegisterComponent implements OnInit {
 
 
 constructor(private formBuilder: FormBuilder){
-  this.user = new User(this.user.name, this.user.lastName, this.user.email, this.user.url); 
+ 
   this.buildForm();
 
 }
