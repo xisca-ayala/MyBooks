@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-form-register',
@@ -7,10 +8,13 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
   styleUrls: ['./form-register.component.css']
 })
 export class FormRegisterComponent implements OnInit {
+  public user: User; 
+
   public registerForm: FormGroup;
 
 
 constructor(private formBuilder: FormBuilder){
+  this.user = new User(this.user.name, this.user.lastName, this.user.email, this.user.url); 
   this.buildForm();
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-form-login',
@@ -8,9 +9,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 
 export class FormLoginComponent implements OnInit {
+  public user: User; 
   public loginForm: FormGroup; 
 
   constructor (private formBuilder: FormBuilder){
+    this.user = new User(this.user.name, this.user.lastName, this.user.email, this.user.url); 
     // buildform() es un metode que jo m'he creat
     this.buildForm(); 
   }
