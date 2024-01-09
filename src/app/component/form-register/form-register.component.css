@@ -10,7 +10,7 @@ h2{
     padding-bottom: 50px;
     font-size: 20px;
     border-radius: 20px; 
-    background: linear-gradient(180deg, rgba(166,221,215,0.3688068977591037) 0%, #8707ff,  rgba(50,51,113,1) 100%);
+    background: linear-gradient(180deg, rgba(248, 215, 194, 0.369) 0%, #f5c084,  rgb(243, 153, 80) 100%);
     color: var(--darkColor);
     box-shadow: 0px 15px 15px gray;
 }

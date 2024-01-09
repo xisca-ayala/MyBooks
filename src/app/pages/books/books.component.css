@@ -1,3 +1,7 @@
+.back{
+    background-color: var(--lightColorBack);
+
+}
 
 .head{
     height: 16vh;
@@ -10,10 +14,10 @@
     text-align: center;
     margin-top: 5px;
     font-family: var(--font-primary);
-   
+    
 }
 
-.container{
+.main{
     display: flex;
     flex-direction: column;
     justify-content: space-between;

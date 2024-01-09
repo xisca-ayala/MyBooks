@@ -1,12 +1,13 @@
-<div class="head">
-    <h1 class="title">TODOS LOS LIBROS
-    </h1>  
-</div>
-<div *ngIf="books.length === 0">
-    No hay libros.
-</div>
-<div class="container">
-    <input type="text" name="text" class="input" placeholder="Busca tu libro con el id_number..." #input (keypress)="getCards(input.value)">
-<app-card></app-card>
-
+<div class="back">
+    <div class="head">
+        <h1 class="title">TODOS LOS LIBROS
+        </h1>  
+    </div>
+    <div *ngIf="books.length === 0">
+        No hay libros.
+    </div>
+    <div class="main">
+        <input type="text" name="text" class="input" placeholder="Busca tu libro con el id_number..." #input (keypress)="getCards(input.value)">
+    <app-card></app-card>
+    </div>
 </div>

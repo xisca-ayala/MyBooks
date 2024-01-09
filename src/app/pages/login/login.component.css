@@ -1,6 +1,6 @@
 .login-form{
     font-family: var(--font-primary);
     height: 87vh;
-    background: linear-gradient(180deg, rgba(166,221,215,0.3688068977591037) 0%, #8707ff,  rgba(50,51,113,1) 100%);
+    background: linear-gradient(180deg, rgba(241, 234, 223, 0.369) 0%, #eecca3,  rgb(245, 170, 89) 100%);
     margin: 0 auto;
 }

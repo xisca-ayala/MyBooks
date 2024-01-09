@@ -13,9 +13,10 @@
 
 :root{
     /* colores */
-    --lightColor:#FCF4EB ;
+    --lightColor:#eeddc9 ;
+    --lightColorBack: #f9f1e6 ; 
     --darkColor: #140B04; 
-    --cardsColor: #8707ff; 
+    --cardsColor: #f37f3c; 
 
     
     /* fuentes */
