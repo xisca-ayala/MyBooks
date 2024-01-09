@@ -39,15 +39,7 @@ img{
 
 .user{
     margin-top: 5vh;
-    display:flex;
-    flex-direction: column;
     width: 600px;
-}
-
-.data{
-    display:flex;
-    flex-direction: row;
-    margin-top: 10px;
 }
 
 input{

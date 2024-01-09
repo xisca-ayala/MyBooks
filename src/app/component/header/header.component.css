@@ -2,29 +2,23 @@
     font-family: var(--font-primary);
 }
 
-.contenedor{
+.main{
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
     height: 100px;
+    width: 100%;
     color:var(--lightColor);
     background-color: var(--darkColor);
     box-shadow: 0px 15px 15px gray;
-  
 }
-
-.column{
-    justify-content:space-between;
-    align-items: center;
-    display: flex;  
-}
-
-.title{
-    margin-left: 20px;
-}
-
 
 .linkMenu{
     text-decoration: none;
     color: var(--lightColor);
+    margin-left: 30px;
+    font-size: 130%;
 }
 
 .linkMenu:hover{
