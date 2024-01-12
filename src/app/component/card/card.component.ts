@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/shared/books.service';
 
@@ -12,6 +12,9 @@ import { BooksService } from 'src/app/shared/books.service';
 export class CardComponent implements OnInit{
 
   public books: Book[] = this.myBooksService.getAll(); 
+  @Input()even:boolean; 
+  @Input()book:Book; 
+
 
   constructor(public myBooksService: BooksService){ 
     

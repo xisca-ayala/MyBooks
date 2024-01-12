@@ -7,7 +7,9 @@
         No hay libros.
     </div>
     <div class="main">
-        <input type="text" name="text" class="input" placeholder="Busca tu libro con el id_number..." #input (keypress)="getCards(input.value)">
-    <app-card></app-card>
+        <input type="text" name="text" class="input" placeholder="Busca tu libro..." #search_id (change)="getCards(search_id.value)">
+        <ng-container *ngFor="let book of books; let even = even" class="bookCard">
+            <app-card [even]="even" [book]="book" (deleteCard) = "deleteCard($event)"></app-card>
+        </ng-container>
     </div>
 </div>

@@ -65,6 +65,5 @@ public showMessage(message:string){
 
 }
 
-let myBooksService = new BooksService(); 
 
 

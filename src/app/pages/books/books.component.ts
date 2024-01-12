@@ -14,21 +14,25 @@ export class BooksComponent implements OnInit{
 
   public books: Book[] = this.myBooksService.getAll(); 
   public book: Book; 
-
-
-  even: boolean;
+  public id_book: number;  
+  public even: boolean;
+  
 
   constructor(public myBooksService: BooksService){
 
   }
 
-  public getCards(id_book: number){
-    if(id_book) {
-      this.books = [this.myBooksService.getOne(id_book)];
+  public getCards(search_id: number){
+    this.id_book = search_id;
+    if(search_id) {
+      this.books = [this.myBooksService.getOne(search_id)];
+      console.log('libros: ' + this.books.length);
     } else {
       this.books = this.myBooksService.getAll();
     }
   }
+
+
 
   ngOnInit(): void{
  
