@@ -25,9 +25,18 @@ export class BooksComponent implements OnInit{
   public getCards(search_id: number){
     this.id_book = search_id;
     if(search_id) {
-      this.books = [this.myBooksService.getOne(search_id)];
-      console.log('libros: ' + this.books.length);
+      let filteredBooks = this.myBooksService.getOne(search_id);
+      if(filteredBooks.length > 0){
+        this.books = filteredBooks;
+      }
     } else {
+      this.books = this.myBooksService.getAll();
+    }
+  }
+
+  public deleteBook(id_book: number){
+    let deleted = this.myBooksService.delete(id_book);
+    if (deleted) {
       this.books = this.myBooksService.getAll();
     }
   }

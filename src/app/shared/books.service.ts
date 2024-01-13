@@ -17,18 +17,13 @@ export class BooksService {
     return this.books; 
   }
 
-  public getOne(id_book: number): Book{
-    let result: Book;
-    this.books.forEach(function (book) {
-      if (book.id_book == id_book) {
-        result = book;
-      }
-    });
-    if (!result){
-      alert("El libro no se ha encontrado. Puebe con otro identificador.")
+  public getOne(id_book: number): Book[]{
+    let filteredBooks: Book[] = this.books.filter(book => book.id_book == id_book);
+    if(filteredBooks.length == 0) {
+      alert("El libro no se ha encontrado. Puebe con otro identificador.");
     }
-    return result;
-  } 
+    return filteredBooks;
+  }
 
   public add(book:Book): void{
     this.books.push(book);

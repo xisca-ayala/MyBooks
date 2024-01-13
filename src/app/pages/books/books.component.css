@@ -26,6 +26,17 @@
 }
 
 
+
+.cardsBox{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 65vh;
+    justify-content: space-around;
+    width: 100%;
+} 
+
+
 .input {
     color: var(--cardsColor);
     border: 2px solid var(--cardsColor);
