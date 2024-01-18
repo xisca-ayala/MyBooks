@@ -19,6 +19,8 @@ import { UpdateBookComponent } from './pages/update-book/update-book.component';
 import { BooksService } from './shared/books.service';
 import { LoginComponent } from './pages/login/login.component';
 import { FormLoginComponent } from './component/form-login/form-login.component';
+import {HttpClientModule} from '@angular/common/http'
+
 
 
 
@@ -46,8 +48,10 @@ import { FormLoginComponent } from './component/form-login/form-login.component'
     AppRoutingModule,
     FormsModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
+
   providers: [BooksService],
   bootstrap: [AppComponent]
 })

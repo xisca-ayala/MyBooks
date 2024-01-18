@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../models/book';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,47 +13,32 @@ export class BooksService {
     new Book("Reina roja", "dura ", "Juan Gómez-Jurado", 21,"/assets/img/imgBooks/reina.jpg", 3 )
   ]; 
 
-  constructor() { }
+  private url = "http://localhost:3000/books"
 
-  public getAll(): Book[]{
-    return this.books; 
+  constructor(private http: HttpClient) {
+    this.books = null; 
+   }
+
+  public getAll():Observable<Object>{
+    return this.http.get(this.url)
   }
 
-  public getOne(id_book: number): Book[]{
-    let filteredBooks: Book[] = this.books.filter(book => book.id_book == id_book);
-    if(filteredBooks.length == 0) {
-      alert("El libro no se ha encontrado. Puebe con otro identificador.");
-    }
-    return filteredBooks;
+  public getOne(id_book: number):Observable<Object>{
+   return this.http.get(this.url, id_book)
   }
 
-  public add(book:Book): void{
-    this.books.push(book);
+  public add(book:Book):Observable<Object>{
+    return this.http.post(this.url, book)
   }
 
-  public edit(bookParam: Book): boolean{
-    let result: boolean = false;
-    this.books.forEach(function(book) {
-      if (book.id_book == bookParam.id_book) {
-        book.author = bookParam.author;
-        book.id_book = bookParam.id_book;
-        book.id_user = bookParam.id_user;
-        book.photo = bookParam.photo;
-        book.price = bookParam.price;
-        book.title = bookParam.title;
-        book.type = bookParam.type;
-        result = true;
-      }
-    });
-    return result;
+  public edit(bookParam: Book):Observable<Object>{
+    console.log(bookParam); 
+    return this.http.put(this.url, bookParam)
   }
 
-  public delete(id_book: number): boolean{
-    let result: boolean;
-    let length = this.books.length;
-    this.books = this.books.filter(book => book.id_book !== id_book);
-    this.books.length !== length ? result = true : result = false;
-    return result;
+  public delete(id_book: number):Observable<Object>{
+    return this.http.delete(this.url, id_book)
+
   }
 
 public showMessage(message:string){
