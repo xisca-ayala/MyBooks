@@ -2,16 +2,14 @@ import { Injectable } from '@angular/core';
 import { Book } from '../models/book';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+// import { Response } from '../models/response';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BooksService {
-  private books: Book[]= [
-    new Book("El día que Nietzsche lloró", "blanda", "Irvin D. Yalom", 19, "/assets/img/imgBooks/Nietzsche.jpeg", 1 ),
-    new Book("El monje que vendió su ferrari", "blanda", "Robin Sharma", 11, "/assets/img/imgBooks/monje.jpg", 2),
-    new Book("Reina roja", "dura ", "Juan Gómez-Jurado", 21,"/assets/img/imgBooks/reina.jpg", 3 )
-  ]; 
+  private books: Book[]; 
+  public book: Book; 
 
   private url = "http://localhost:3000/books"
 
@@ -24,7 +22,7 @@ export class BooksService {
   }
 
   public getOne(id_book: number):Observable<Object>{
-   return this.http.get(this.url, id_book)
+   return this.http.get(`${this.url}/${id_book}`)
   }
 
   public add(book:Book):Observable<Object>{
@@ -37,7 +35,7 @@ export class BooksService {
   }
 
   public delete(id_book: number):Observable<Object>{
-    return this.http.delete(this.url, id_book)
+    return this.http.delete(`${this.url}/${id_book}`)
 
   }
 
