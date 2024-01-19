@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/shared/books.service';
+import { Response } from 'src/app/models/response';
 
 
 
@@ -12,38 +14,69 @@ import { BooksService } from 'src/app/shared/books.service';
 
 export class BooksComponent implements OnInit{
 
-  public books: Book[] = this.myBooksService.getAll(); 
+  public books: Book[]= []; 
   public book: Book; 
-  public id_book: number;  
+  public id_book: number;
   public even: boolean;
   
 
-  constructor(public myBooksService: BooksService){
+
+  constructor(public myBooksService: BooksService, private toast: ToastrService){
 
   }
 
-  public getCards(search_id: number){
-    this.id_book = search_id;
-    if(search_id) {
-      let filteredBooks = this.myBooksService.getOne(search_id);
-      if(filteredBooks.length > 0){
-        this.books = filteredBooks;
-      }
+  public getCards(search_id: HTMLInputElement){
+    let search_idBook: number = parseFloat (search_id.value);
+    if(search_idBook) {
+      this.myBooksService.getOne(search_idBook)
+      .subscribe((resp: Response)=> {
+        console.log(resp);
+        if(!resp.err){
+          this.toast.success('Se ha encontrado el libro', "",
+                            {timeOut:2000, positionClass: "toast-top-center"});
+        }else{
+          this.toast.error('Libro no encontrado', "", 
+                    {timeOut: 2000, positionClass: 'toast-top-center'});
+        } 
+      });
+      this.toast.success("Busca un libro","", 
+      {timeOut: 2000, positionClass: 'toast-top-center'}); 
     } else {
-      this.books = this.myBooksService.getAll();
-    }
+      this.myBooksService.getAll()
+      .subscribe((resp: Response)=> {
+        console.log(resp);
+        if(!resp.err){
+          this.books = resp.data; 
+          this.toast.success('Todos los libros', "",
+                            {timeOut:2000, positionClass: "toast-top-center"});
+        }else{
+          this.toast.error('Libros no encontrados', "", 
+                    {timeOut: 2000, positionClass: 'toast-top-center'});
+        } 
+      });
+    } 
   }
 
-  public deleteBook(id_book: number){
-    let deleted = this.myBooksService.delete(id_book);
-    if (deleted) {
-      this.books = this.myBooksService.getAll();
-    }
-  }
 
+  public deleteBook (id_book:number){
+    this.myBooksService.delete(id_book)
+    .subscribe((resp: Response)=> {
+      if (!resp.err){
+        this.toast.success('Libro eliminado', "",
+                            {timeOut:2000, positionClass: "toast-top-center"});
+      }else{
+        this.toast.error('No se ha eliminado ningun libro', "", 
+                    {timeOut: 2000, positionClass: 'toast-top-center'});
+      }
+    })
+  }
 
 
   ngOnInit(): void{
+    this.myBooksService.getAll()
+    .subscribe((resp: Response)=> {
+      this.books = resp.data; 
+    })
  
   }
 }

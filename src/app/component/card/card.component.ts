@@ -3,6 +3,7 @@ import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/shared/books.service';
 
 
+
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -11,7 +12,7 @@ import { BooksService } from 'src/app/shared/books.service';
 
 export class CardComponent implements OnInit{
 
-  public books: Book[] = this.myBooksService.getAll(); 
+  public books: Book[];
   @Input() even:boolean; 
   @Input() book:Book;
   @Output() deleteChildCard = new EventEmitter<number>(); 

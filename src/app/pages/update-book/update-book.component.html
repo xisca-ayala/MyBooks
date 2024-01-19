@@ -1,13 +1,13 @@
 <div class="formContainer">
     <form action="" class="form">
         <h2 class="formTitle">Modificar libro</h2>
-        <input placeholder="Título" #input1 type="text">
-        <input placeholder="Autor" #input2 type="text">
-        <input placeholder="Tapa blanda/dura" #input3 type="text">
-        <input placeholder="Precio" #input4 type="number">
-        <input placeholder="Url photo" #input5 type="text">
-        <input placeholder="Código libro" #input6 type="number">
-        <button class="button2" (click)="editBook(input1.value, input2.value, input3.value, input4.value, input5.value, input6.value); goPlace()">Modificar libro</button>
+        <input placeholder="Título" #title type="text">
+        <input placeholder="Autor" #author type="text">
+        <input placeholder="Tapa blanda/dura" #type type="text">
+        <input placeholder="Precio" #price type="number">
+        <input placeholder="Url photo" #photo type="text">
+        <input placeholder="Código libro" #id_book type="number">
+        <button class="button2" (click)="editBook(title, author, type, price, photo, id_book); goPlace()">Modificar libro</button>
     </form>
 </div>
 

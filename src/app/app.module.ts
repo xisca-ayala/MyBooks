@@ -20,7 +20,7 @@ import { BooksService } from './shared/books.service';
 import { LoginComponent } from './pages/login/login.component';
 import { FormLoginComponent } from './component/form-login/form-login.component';
 import {HttpClientModule} from '@angular/common/http'
-import { Toast, ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -51,7 +51,7 @@ import { Toast, ToastrModule } from 'ngx-toastr';
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ToastrModule
+    ToastrModule.forRoot()
   ],
 
   providers: [BooksService],

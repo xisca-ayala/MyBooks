@@ -13,7 +13,7 @@
             class="input" 
             placeholder="Busca tu libro..." 
             #search_id 
-            (change)="getCards(search_id.value)">
+            (change)="getCards(search_id)">
         <div class="cardsBox">
             <app-card 
                 *ngFor="let book of books; let even = even;" 

@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { Book } from '../models/book';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-// import { Response } from '../models/response';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class BooksService {
-  private books: Book[]; 
+  public books: Book[]; 
   public book: Book; 
 
   private url = "http://localhost:3000/books"
