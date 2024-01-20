@@ -19,8 +19,9 @@ import { UpdateBookComponent } from './pages/update-book/update-book.component';
 import { BooksService } from './shared/books.service';
 import { LoginComponent } from './pages/login/login.component';
 import { FormLoginComponent } from './component/form-login/form-login.component';
-import {HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'
 import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 
 
@@ -51,7 +52,8 @@ import { ToastrModule } from 'ngx-toastr';
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
 
   providers: [BooksService],

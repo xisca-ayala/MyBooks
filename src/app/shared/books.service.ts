@@ -11,32 +11,29 @@ export class BooksService {
   public books: Book[]; 
   public book: Book; 
 
-  private url = "http://localhost:3000/books"
+  private url = "http://localhost:3000/books";
 
   constructor(private http: HttpClient) {
-    this.books = null; 
-   }
+  }
 
   public getAll():Observable<Object>{
-    return this.http.get(this.url)
+    return this.http.get(this.url);
   }
 
   public getOne(id_book: number):Observable<Object>{
-   return this.http.get(`${this.url}/${id_book}`)
+   return this.http.get(this.url + '?id=' + id_book);
   }
 
   public add(book:Book):Observable<Object>{
-    return this.http.post(this.url, book)
+    return this.http.post(this.url, book);
   }
 
-  public edit(bookParam: Book):Observable<Object>{
-    console.log(bookParam); 
-    return this.http.put(this.url, bookParam)
+  public edit(book: Book):Observable<Object>{
+    return this.http.put(this.url, book);
   }
 
   public delete(id_book: number):Observable<Object>{
-    return this.http.delete(`${this.url}/${id_book}`)
-
+    return this.http.delete(this.url + '?id=' + id_book);
   }
 
 public showMessage(message:string){

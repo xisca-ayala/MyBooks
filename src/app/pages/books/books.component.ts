@@ -19,10 +19,7 @@ export class BooksComponent implements OnInit{
   public id_book: number;
   public even: boolean;
   
-
-
   constructor(public myBooksService: BooksService, private toast: ToastrService){
-
   }
 
   public getCards(search_id: HTMLInputElement){
@@ -32,6 +29,7 @@ export class BooksComponent implements OnInit{
       .subscribe((resp: Response)=> {
         console.log(resp);
         if(!resp.err){
+          this.books = resp.data;
           this.toast.success('Se ha encontrado el libro', "",
                             {timeOut:2000, positionClass: "toast-top-center"});
         }else{
@@ -57,10 +55,10 @@ export class BooksComponent implements OnInit{
     } 
   }
 
-
   public deleteBook (id_book:number){
     this.myBooksService.delete(id_book)
     .subscribe((resp: Response)=> {
+      console.log(resp); 
       if (!resp.err){
         this.toast.success('Libro eliminado', "",
                             {timeOut:2000, positionClass: "toast-top-center"});
@@ -71,12 +69,11 @@ export class BooksComponent implements OnInit{
     })
   }
 
-
   ngOnInit(): void{
     this.myBooksService.getAll()
     .subscribe((resp: Response)=> {
+      console.log(resp)
       this.books = resp.data; 
     })
- 
   }
 }
