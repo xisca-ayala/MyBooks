@@ -1,13 +1,26 @@
 <div class="formContainer">
-    <form action="" class="form">
-        <h2 class="formTitle">Modificar libro</h2>
-        <input placeholder="Título" #title type="text">
-        <input placeholder="Autor" #author type="text">
-        <input placeholder="Tapa blanda/dura" #type type="text">
-        <input placeholder="Precio" #price type="number">
-        <input placeholder="Url photo" #photo type="text">
-        <input placeholder="Código libro" #id type="number">
-        <button class="button2" (click)="editBook(title, type, author, price, photo, id); goPlace()">Modificar libro</button>
-    </form>
+    <div>
+        <form action="" class="form" [formGroup]="updateForm">
+            <h2 class="formTitle">Modificar libro</h2>
+            <input placeholder="Título" #title type="text" class="form-control" formControlName="title" 
+            [ngClass]="{'is-invalid': (updateForm.get('title').dirty || updateForm.get('title').touched) && !updateForm.get('title').valid}">
+                <div *ngIf="!updateForm.get('title').valid" class="invalid-feedback">El título es necesario. </div>
+            <input placeholder="Autor" #author type="text" class="form-control" formControlName="type" 
+            [ngClass]="{'is-invalid': (updateForm.get('type').dirty || updateForm.get('type').touched) && !updateForm.get('type').valid}">
+            <div *ngIf="!updateForm.get('type').valid" class="invalid-feedback">El tipo de tapa es necesario. </div>
+            <input placeholder="Tapa blanda/dura" #type class="form-control" type="text" formControlName="author" 
+            [ngClass]="{'is-invalid': (updateForm.get('author').dirty || updateForm.get('author').touched) && !updateForm.get('author').valid}">
+            <div *ngIf="!updateForm.get('author').valid" class="invalid-feedback">El autor es necesario. </div>
+            <input placeholder="Precio" #price class="form-control" type="number" formControlName="price" 
+            [ngClass]="{'is-invalid': (updateForm.get('price').dirty || updateForm.get('price').touched) && !updateForm.get('price').valid}">
+            <div *ngIf="!updateForm.get('price').valid" class="invalid-feedback">El precio es necesario. </div>
+            <input placeholder="Url photo" #photo type="text" class="form-control" formControlName="photo"  
+            [ngClass]="{'is-invalid': (updateForm.get('photo').dirty || updateForm.get('photo').touched) && !updateForm.get('photo').valid}">
+            <div *ngIf="!updateForm.get('photo').valid" class="invalid-feedback">La url de la foto es necesaria. </div>
+            <input placeholder="Código libro" #id type="number" class="form-control" formControlName="id" 
+            [ngClass]="{'is-invalid': (updateForm.get('id').dirty || updateForm.get('id').touched) && !updateForm.get('id').valid}">
+            <div *ngIf="!updateForm.get('id').valid" class="invalid-feedback">El código es necesario. </div>
+            <button class="btn btn-success" (click)="editBook(title, type, author, price, photo, id); goPlace()">Modificar libro</button>
+        </form>
+    </div>
 </div>
-

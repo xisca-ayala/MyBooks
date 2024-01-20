@@ -4,6 +4,7 @@ import { BooksService } from 'src/app/shared/books.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Response } from 'src/app/models/response';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -15,8 +16,11 @@ import { Response } from 'src/app/models/response';
 export class AddBooksComponent implements OnInit{
 
   public message: string; 
+  public addForm: FormGroup;
 
-  constructor(public myBooksService: BooksService, private router: Router, private toast: ToastrService){}
+  constructor(public myBooksService: BooksService, private router: Router, private toast: ToastrService, private formBuilder: FormBuilder){
+    this.buildForm(); 
+  }
 
   newBook(title: HTMLInputElement, type: HTMLInputElement, author: HTMLInputElement, price: HTMLInputElement, photo: HTMLInputElement, 
   id: HTMLInputElement) {
@@ -49,6 +53,17 @@ export class AddBooksComponent implements OnInit{
         } 
       })
     }
+  }
+
+  private buildForm(){
+    this.addForm = this.formBuilder.group({
+      title: [, Validators.required],
+      type: [, Validators.required],
+      author: [, Validators.required],
+      price: [, Validators.required],
+      photo: [, Validators.required],
+      id: [, Validators.required]
+    })
   }
 
   goPlace(){

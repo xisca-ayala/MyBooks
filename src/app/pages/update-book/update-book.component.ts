@@ -4,6 +4,7 @@ import { BooksService } from 'src/app/shared/books.service';
 import { Router } from '@angular/router';
 import { Response } from 'src/app/models/response';
 import { ToastrService } from 'ngx-toastr';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-update-book',
@@ -13,10 +14,12 @@ import { ToastrService } from 'ngx-toastr';
 export class UpdateBookComponent implements OnInit {
   
   public books: Book[] =[];
+  public updateForm: FormGroup; 
   
 
-  constructor(public myBooksService: BooksService, private router: Router, private toast: ToastrService){
-     this.myBooksService.getAll(); 
+  constructor(public myBooksService: BooksService, private router: Router, private toast: ToastrService, private formBuilder: FormBuilder){
+    //  this.myBooksService.getAll(); 
+    this.buildForm(); 
   }
 
 
@@ -35,6 +38,17 @@ export class UpdateBookComponent implements OnInit {
                   {timeOut: 2000, positionClass: 'toast-top-center'});
       } 
     });
+  }
+
+  private buildForm(){
+    this.updateForm = this.formBuilder.group({
+      title: [, Validators.required],
+      type: [, Validators.required],
+      author: [, Validators.required],
+      price: [, Validators.required],
+      photo: [, Validators.required],
+      id: [, Validators.required]
+    })
   }
 
   goPlace(){

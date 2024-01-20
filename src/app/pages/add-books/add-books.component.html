@@ -1,13 +1,27 @@
 
 <div class="formContainer">
-    <form action="" class="form">
-        <h2 class="formTitle">Añadir libro</h2>
-        <input placeholder="Título" #title type="text">
-        <input placeholder="Autor" #author type="text">
-        <input placeholder="Tapa blanda/dura" #type type="text">
-        <input placeholder="Precio" #price type="number">
-        <input placeholder="Url photo" #photo type="text">
-        <input placeholder="Código libro" #id type="number">
-        <button class="button2" (click)="newBook(title, type, author, price, photo, id); goPlace()">Insertar libro</button>
-    </form>
+    <div>
+        <form action="" class="form" [formGroup]="addForm">
+            <h2 class="formTitle">Añadir libro</h2>
+            <input placeholder="Título" #title type="text" class="form-control" formControlName="title"
+            [ngClass]="{'is-invalid': (addForm.get('title').dirty || addForm.get('title').touched) && !addForm.get('title').valid}">
+            <div *ngIf="!addForm.get('title').valid" class="invalid-feedback">El título es necesario. </div>
+            <input placeholder="Autor" #author type="text" class="form-control" formControlName="author" 
+            [ngClass]="{'is-invalid': (addForm.get('author').dirty || addForm.get('author').touched) && !addForm.get('author').valid}">
+            <div *ngIf="!addForm.get('author').valid" class="invalid-feedback">El autor es necesario. </div>
+            <input placeholder="Tapa blanda/dura" #type type="text" class="form-control" formControlName="type"
+            [ngClass]="{'is-invalid': (addForm.get('type').dirty || addForm.get('type').touched) && !addForm.get('type').valid}">
+            <div *ngIf="!addForm.get('title').valid" class="invalid-feedback">El tipo de tapa es necesario. </div>
+            <input placeholder="Precio" #price type="number" class="form-control" formControlName="price"
+            [ngClass]="{'is-invalid': (addForm.get('price').dirty || addForm.get('price').touched) && !addForm.get('price').valid}">
+            <div *ngIf="!addForm.get('price').valid" class="invalid-feedback">El precio es necesario. </div>
+            <input placeholder="Url photo" #photo type="text" class="form-control" formControlName="photo"
+            [ngClass]="{'is-invalid': (addForm.get('photo').dirty || addForm.get('photo').touched) && !addForm.get('photo').valid}">
+            <div *ngIf="!addForm.get('photo').valid" class="invalid-feedback">La url de la foto es necesaria. </div>
+            <input placeholder="Código libro" #id type="number" class="form-control" formControlName="id"
+            [ngClass]="{'is-invalid': (addForm.get('id').dirty || addForm.get('id').touched) && !addForm.get('id').valid}">
+            <div *ngIf="!addForm.get('id').valid" class="invalid-feedback">El código del libro es necesario. </div>
+            <button class="btn btn-success" (click)="newBook(title, type, author, price, photo, id); goPlace()">Insertar libro</button>
+        </form>
+    </div>
 </div>
