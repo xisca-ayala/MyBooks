@@ -33,6 +33,8 @@ export class BooksComponent implements OnInit{
           this.toast.success('Se ha encontrado el libro', "",
                             {timeOut:2000, positionClass: "toast-top-center"});
         }else{
+          this.books = resp.data;
+          alert(resp.message);
           this.toast.error('Libro no encontrado', "", 
                     {timeOut: 2000, positionClass: 'toast-top-center'});
         } 

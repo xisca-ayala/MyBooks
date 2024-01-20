@@ -20,23 +20,21 @@ export class UpdateBookComponent implements OnInit {
   }
 
 
-  editBook(title:HTMLInputElement, type:HTMLInputElement, author:HTMLInputElement, price:HTMLInputElement,
-           photo:HTMLInputElement, id:HTMLInputElement){
-            let priceNumber: number = parseFloat(price.value);
-            let idBook: number = parseFloat(id.value); 
-            let newBook: Book = new Book(title.value, type.value, author.value, priceNumber, photo.value, idBook);
-            this.myBooksService.edit(newBook)
-            .subscribe((resp: Response)=> {
-              console.log(resp);
-              if(!resp.err){
-                this.toast.success('Libro modificado con éxito', "",
-                                  {timeOut:2000, positionClass: "toast-top-center"});
-              }
-              else{
-                this.toast.error('No hay modificaciones', "", 
-                          {timeOut: 2000, positionClass: 'toast-top-center'});
-              } 
-            })
+  editBook(title: HTMLInputElement, type: HTMLInputElement, author: HTMLInputElement, price: HTMLInputElement,
+           photo: HTMLInputElement, id: HTMLInputElement){
+    let newBook: Book = new Book(title.value, type.value, author.value, parseFloat(price.value), photo.value, parseInt(id.value));
+    this.myBooksService.edit(newBook)
+    .subscribe((resp: Response)=> {
+      console.log(resp);
+      if(!resp.err){
+        this.toast.success('Libro modificado con éxito', "",
+                          {timeOut:2000, positionClass: "toast-top-center"});
+      }
+      else{
+        this.toast.error('No hay modificaciones', "", 
+                  {timeOut: 2000, positionClass: 'toast-top-center'});
+      } 
+    });
   }
 
   goPlace(){

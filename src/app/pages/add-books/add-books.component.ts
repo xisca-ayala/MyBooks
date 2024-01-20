@@ -18,22 +18,19 @@ export class AddBooksComponent implements OnInit{
 
   constructor(public myBooksService: BooksService, private router: Router, private toast: ToastrService){}
 
-  newBook(title:HTMLInputElement, type: HTMLInputElement, author:HTMLInputElement, price:HTMLInputElement, photo:HTMLInputElement, 
-    id:HTMLInputElement){
+  newBook(title: HTMLInputElement, type: HTMLInputElement, author: HTMLInputElement, price: HTMLInputElement, photo: HTMLInputElement, 
+  id: HTMLInputElement) {
+    if (title.value == "" || type.value == "" || author.value == "" || price.value == "" || photo.value == "" || 
+    id.value == ""){
+      this.toast.error("Falta un campo obligatorio","", 
+      {timeOut: 2000, positionClass: 'toast-top-center'}); 
+    } else {
+      let newBook: Book = new Book (title.value, type.value, author.value, parseFloat(price.value), photo.value, parseInt(id.value));
+      console.log (newBook);
 
-      if (title.value == "" || type.value == "" || author.value == "" || price.value == "" || photo.value == "" || 
-      id.value == ""){
-         this.toast.error("Falta un campo obligatorio","", 
-        {timeOut: 2000, positionClass: 'toast-top-center'}); 
-      }else{
-        let priceNumber: number = parseFloat(price.value);
-        let newBook: Book = new Book (title.value, type.value, author.value, priceNumber, id.value);
-        console.log (newBook);
-
-        this.myBooksService.add(newBook)
-        .subscribe((resp: Response)=>{
-
-          console.log(resp);
+      this.myBooksService.add(newBook)
+      .subscribe((resp: Response)=>{
+        console.log(resp);
 
         if(!resp.err){
           this.toast.success('Libro insertado con éxito', "",
@@ -41,12 +38,12 @@ export class AddBooksComponent implements OnInit{
           title.value = "";
           type.value = "";
           author.value = "";
-          price.value =""; 
+          price.value = "";
+          photo.value = ""; 
           id.value = "";
 
           this.myBooksService.book = null; 
-        }
-        else{
+        } else {
           this.toast.error('El usuario ya existe', "", 
                     {timeOut: 2000, positionClass: 'toast-top-center'});
         } 
