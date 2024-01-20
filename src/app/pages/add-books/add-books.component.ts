@@ -19,15 +19,15 @@ export class AddBooksComponent implements OnInit{
   constructor(public myBooksService: BooksService, private router: Router, private toast: ToastrService){}
 
   newBook(title:HTMLInputElement, type: HTMLInputElement, author:HTMLInputElement, price:HTMLInputElement, photo:HTMLInputElement, 
-    id_book:HTMLInputElement){
+    id:HTMLInputElement){
 
       if (title.value == "" || type.value == "" || author.value == "" || price.value == "" || photo.value == "" || 
-      id_book.value == ""){
+      id.value == ""){
          this.toast.error("Falta un campo obligatorio","", 
         {timeOut: 2000, positionClass: 'toast-top-center'}); 
       }else{
         let priceNumber: number = parseFloat(price.value);
-        let newBook: Book = new Book (title.value, type.value, author.value, priceNumber, id_book.value);
+        let newBook: Book = new Book (title.value, type.value, author.value, priceNumber, id.value);
         console.log (newBook);
 
         this.myBooksService.add(newBook)
@@ -42,7 +42,7 @@ export class AddBooksComponent implements OnInit{
           type.value = "";
           author.value = "";
           price.value =""; 
-          id_book.value = "";
+          id.value = "";
 
           this.myBooksService.book = null; 
         }

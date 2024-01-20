@@ -21,9 +21,9 @@ export class UpdateBookComponent implements OnInit {
 
 
   editBook(title:HTMLInputElement, type:HTMLInputElement, author:HTMLInputElement, price:HTMLInputElement,
-           photo:HTMLInputElement, id_book:HTMLInputElement){
+           photo:HTMLInputElement, id:HTMLInputElement){
             let priceNumber: number = parseFloat(price.value);
-            let idBook: number = parseFloat(id_book.value); 
+            let idBook: number = parseFloat(id.value); 
             let newBook: Book = new Book(title.value, type.value, author.value, priceNumber, photo.value, idBook);
             this.myBooksService.edit(newBook)
             .subscribe((resp: Response)=> {

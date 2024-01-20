@@ -20,8 +20,8 @@ export class BooksService {
     return this.http.get(this.url);
   }
 
-  public getOne(id_book: number):Observable<Object>{
-   return this.http.get(this.url + '?id=' + id_book);
+  public getOne(id: number):Observable<Object>{
+   return this.http.get(this.url + '?id=' + id);
   }
 
   public add(book:Book):Observable<Object>{
@@ -32,8 +32,8 @@ export class BooksService {
     return this.http.put(this.url, book);
   }
 
-  public delete(id_book: number):Observable<Object>{
-    return this.http.delete(this.url + '?id=' + id_book);
+  public delete(id: number):Observable<Object>{
+    return this.http.delete(this.url + '?id=' + id);
   }
 
 public showMessage(message:string){

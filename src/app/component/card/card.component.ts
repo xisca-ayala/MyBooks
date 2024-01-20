@@ -20,8 +20,8 @@ export class CardComponent implements OnInit{
   constructor(public myBooksService: BooksService){ 
   }
 
-  deleteCard(id_book: number): void {
-    this.deleteChildCard.emit(id_book); 
+  deleteCard(id: number): void {
+    this.deleteChildCard.emit(id); 
   }
 
   ngOnInit(): void {}

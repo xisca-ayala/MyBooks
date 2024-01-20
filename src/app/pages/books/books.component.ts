@@ -16,7 +16,7 @@ export class BooksComponent implements OnInit{
 
   public books: Book[]= []; 
   public book: Book; 
-  public id_book: number;
+  public id: number;
   public even: boolean;
   
   constructor(public myBooksService: BooksService, private toast: ToastrService){
@@ -55,13 +55,14 @@ export class BooksComponent implements OnInit{
     } 
   }
 
-  public deleteBook (id_book:number){
-    this.myBooksService.delete(id_book)
+  public deleteBook (id:number){
+    this.myBooksService.delete(id)
     .subscribe((resp: Response)=> {
       console.log(resp); 
       if (!resp.err){
         this.toast.success('Libro eliminado', "",
                             {timeOut:2000, positionClass: "toast-top-center"});
+        this.books = resp.data;
       }else{
         this.toast.error('No se ha eliminado ningun libro', "", 
                     {timeOut: 2000, positionClass: 'toast-top-center'});
