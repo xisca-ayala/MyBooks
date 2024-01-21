@@ -4,7 +4,7 @@
             <h2 class="formTitle">Modificar libro</h2>
             <input placeholder="Título" #title type="text" class="form-control" formControlName="title" 
             [ngClass]="{'is-invalid': (updateForm.get('title').dirty || updateForm.get('title').touched) && !updateForm.get('title').valid}">
-                <div *ngIf="!updateForm.get('title').valid" class="invalid-feedback">El título es necesario. </div>
+            <div *ngIf="!updateForm.get('title').valid" class="invalid-feedback">El título es necesario. </div>
             <input placeholder="Autor" #author type="text" class="form-control" formControlName="type" 
             [ngClass]="{'is-invalid': (updateForm.get('type').dirty || updateForm.get('type').touched) && !updateForm.get('type').valid}">
             <div *ngIf="!updateForm.get('type').valid" class="invalid-feedback">El tipo de tapa es necesario. </div>

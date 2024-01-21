@@ -28,8 +28,7 @@
 
 
 .imgHome{
-    width: 700px;
-    height: 700px;
+    height: 70vh;
     margin: 90px 0px 90px 50px;
     border-radius:50%;
     background-image: url('src/assets/img/imgHome/paginas-libro.jpg');

@@ -1,16 +1,15 @@
 
-
 .bookCard{
     background: linear-gradient(180deg, rgba(232, 207, 167, 0.369) 0%, #eca16b,  rgb(246, 153, 95) 100%);
     border-radius: 30px;
     border-left: 20px solid black;
-    height: 610px;
-    width: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly; 
     box-shadow: 5px 5px 5px rgb(239, 225, 185);
     margin: 20px;
+    height: 600px;
+    width: 350px;
 }
 
 .deleteCard{
@@ -88,3 +87,15 @@ img{
     width: 100px;
     margin-bottom: 20px;
 }
+
+
+
+
+
+
+
+
+
+
+    
+

@@ -1,5 +1,5 @@
-<div class="main">
-    <div class="box1">
+<div class="main row">
+    <div class="box1 col-6">
         <div class="img">
             <img src="{{user1.url}}" alt="person">
         </div>
@@ -22,7 +22,7 @@
         </div>
         <div [hidden]="isHidden" style.color = {{myColor}}>{{message}}</div>
     </div>
-    <div class="box2">
+    <div class="box2 col-6">
         <h2 class="title2">EDITAR DATOS</h2>
         <form action="" class="form">
             <input type="text" name="name" #input1  placeholder="Nombre" />
