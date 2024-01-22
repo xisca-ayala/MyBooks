@@ -33,8 +33,7 @@ export class BooksService {
   }
 
   public delete(id: number):Observable<Object>{
-    // return this.http.delete(this.url + '?id=' + id);
-    return this.http.delete(this.url);
+    return this.http.delete(this.url + '?id=' + id);
   }
 
 public showMessage(message:string){
