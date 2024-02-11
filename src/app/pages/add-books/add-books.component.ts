@@ -14,7 +14,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 
 export class AddBooksComponent implements OnInit{
-
   public message: string; 
   public addForm: FormGroup;
 
@@ -23,7 +22,7 @@ export class AddBooksComponent implements OnInit{
   }
 
   newBook(title: HTMLInputElement, type: HTMLInputElement, author: HTMLInputElement, price: HTMLInputElement, photo: HTMLInputElement, 
-  id: HTMLInputElement) {
+  id: HTMLInputElement){
     if (title.value == "" || type.value == "" || author.value == "" || price.value == "" || photo.value == "" || 
     id.value == ""){
       this.toast.error("Falta un campo obligatorio","", 
@@ -48,7 +47,7 @@ export class AddBooksComponent implements OnInit{
 
           this.myBooksService.book = null; 
         } else {
-          this.toast.error('El usuario ya existe', "", 
+          this.toast.error('El libro ya existe', "", 
                     {timeOut: 2000, positionClass: 'toast-top-center'});
         } 
       })

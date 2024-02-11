@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class BooksService {
+export class UserService {
   public user: User; 
-  public logueado: boolean; 
+  public logueado: boolean = false; 
   private url = "http://localhost:3000/";
 
   constructor(private http: HttpClient) {
@@ -22,10 +22,6 @@ export class BooksService {
   public login(user: User):Observable<Object>{
     return this.http.post(this.url, user);
   }
-
-    // public showMessage(message:string){
-    // alert(message);  
-    // }
 
 }
 
