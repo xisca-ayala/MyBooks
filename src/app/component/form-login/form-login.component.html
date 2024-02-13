@@ -17,6 +17,6 @@
                 <div *ngIf="loginForm.get('password').errors.minLength"> La contraseña tiene que tener almenos 8 carácteres.</div>
             </div>
         </div>
-        <button class="button btn btn-success" (click)="register()" [disabled]="loginForm.invalid">Envia</button>
+        <button class="button btn btn-success" (click)="login()" [disabled]="loginForm.invalid">Envia</button>
     </form>
 </div>

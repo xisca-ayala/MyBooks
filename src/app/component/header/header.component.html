@@ -1,13 +1,15 @@
 <div class="main">
     <h1 class="title">myBooks</h1>
-    <div >
-        <a routerLink="/home" class="linkMenu home">HOME</a>
+    <div *ngIf="myUserService.logueado">
         <a routerLink="/books" class="linkMenu books">BOOKS</a>
         <a routerLink="/add-books" class="linkMenu books">ADD BOOK</a>
         <a routerLink="/update-book" class="linkMenu books">UPDATE BOOK</a>
+        <a routerLink="/profile" class="linkMenu profile">PROFILE</a>
+    </div>
+    <div *ngIf="!myUserService.logueado">
+        <a routerLink="/home" class="linkMenu home">HOME</a>
         <a routerLink="/register" class="linkMenu register">REGISTER</a>
         <a routerLink="/login" class="linkMenu login">LOGIN</a>
-        <a routerLink="/profile" class="linkMenu profile">PROFILE</a>
     </div>
 </div>
 

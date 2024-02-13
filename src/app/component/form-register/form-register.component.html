@@ -22,9 +22,9 @@
                 </div>
             </div>
             <div class="form-group"> 
-                <label for="url">Url:</label>
-                <input type="url" class="form-control" formControlName="url" [ngClass]="{'is-invalid': (registerForm.get('url').dirty || registerForm.get('url').touched) && !registerForm.get('url').valid}">
-                <div *ngIf="!registerForm.get('url').valid" class="invalid-feedback">La url de la foto es necesaria.</div>
+                <label for="photo">Url:</label>
+                <input type="photo" class="form-control" formControlName="photo" [ngClass]="{'is-invalid': (registerForm.get('photo').dirty || registerForm.get('photo').touched) && !registerForm.get('photo').valid}">
+                <div *ngIf="!registerForm.get('photo').valid" class="invalid-feedback">La url de la foto es necesaria.</div>
             </div>
             <div class="form-group">
                 <label for="password">Contraseña:</label>

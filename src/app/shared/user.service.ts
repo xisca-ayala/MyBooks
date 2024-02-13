@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
   public user: User; 
   public logueado: boolean = false; 
@@ -16,11 +17,13 @@ export class UserService {
   }
 
   public add(user: User):Observable<Object>{
-    return this.http.post(this.url, user);
+    let addUserUrl = this.url + 'register';
+    return this.http.post(addUserUrl, user);
   }
 
   public login(user: User):Observable<Object>{
-    return this.http.post(this.url, user);
+    let loginUserUrl = this.url + 'login';
+    return this.http.post(loginUserUrl, user);
   }
 
 }
