@@ -18,7 +18,7 @@ export class ProfileComponent {
 
 
   constructor(){
-    this.user1 = new User("Ana","García Pinya","ana@gmail.com", "/assets/img/imgProfile/person.jpg");
+    // this.user1 = new User("Ana","García Pinya","ana@gmail.com", "/assets/img/imgProfile/person.jpg");
 
     this.message = ''; 
     this.isHidden = true; 
@@ -34,12 +34,12 @@ export class ProfileComponent {
     if(newLastName){
       this.user1.lastName = newLastName;
     }
-    if(newLastName){
-      this.user1.email = newEmail;
-    }
-    if(newLastName){
-      this.user1.url = newUrl; 
-    }
+    // if(newLastName){
+    //   this.user1.email = newEmail;
+    // }
+    // if(newLastName){
+    //   this.user1.url = newUrl; 
+    // }
 
     console.log(this.user1.name);
 
