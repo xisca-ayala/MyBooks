@@ -29,10 +29,12 @@ export class FormLoginComponent implements OnInit {
     }else{
       this.myUserService.logueado = true;
       this.router.navigate(['./books']);
-      let user: User = new User ( this.myUserService.user.name, this.myUserService.user.lastName,
-       userFormData.email, this.myUserService.user.photo, userFormData.password);
-        console.log(user);
-     
+      let user: User = new User (this.myUserService.user.name, 
+                                this.myUserService.user.last_name,
+                                userFormData.email, 
+                                this.myUserService.user.photo, 
+                                userFormData.password);
+      console.log(user);
       console.log('Los datos coinciden');
 
       this.myUserService.login(user)
@@ -51,7 +53,6 @@ export class FormLoginComponent implements OnInit {
       })
     }
   }
-  
 
   private buildForm(){
     let minPassLength = 8;
@@ -62,13 +63,9 @@ export class FormLoginComponent implements OnInit {
       email: [, [Validators.required, Validators.email]],
       password:[, [Validators.required, Validators.minLength(minPassLength)]]
     });
-
-
   }
 
-
   ngOnInit(): void {
-    
   }
 
 }

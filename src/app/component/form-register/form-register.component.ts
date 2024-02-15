@@ -21,11 +21,6 @@ export class FormRegisterComponent implements OnInit {
     this.buildForm();
   }
 
-  // public postUser(name: HTMLInputElement, last_name: HTMLInputElement,
-  //                 email: HTMLInputElement, photo:HTMLInputElement,
-  //                 password: HTMLInputElement, confirmPassword: HTMLInputElement){
-
-
   public register(){
     let registerData = this.registerForm.value; 
     console.log(registerData);
@@ -65,7 +60,6 @@ export class FormRegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }  
 
   private buildForm(){

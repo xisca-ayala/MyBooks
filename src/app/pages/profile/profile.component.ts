@@ -1,5 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Route } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/shared/user.service';
 
 
 
@@ -9,41 +14,43 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./profile.component.css']
 })
 
-export class ProfileComponent {
+export class ProfileComponent implements OnInit {
 
-  public user1: User;
+  public user: User;
   public message: string;
   public isHidden: boolean;
+  public profileForm: FormGroup; 
   public myColor: string; 
 
 
-  constructor(){
+  constructor(public myUserService: UserService, 
+              private formBuilder: FormBuilder, 
+              private router: Router, 
+              private toast: ToastrService){
     // this.user1 = new User("Ana","García Pinya","ana@gmail.com", "/assets/img/imgProfile/person.jpg");
 
     this.message = ''; 
     this.isHidden = true; 
-    this.myColor = '#ff0000';
+    this.myColor = '#ff0000'; 
   }
 
 
-  send(newName:string, newLastName: string, newEmail:string, newUrl:string){
+  updateUser(newName:string, newLastName: string, newEmail:string, newPhoto:string){
 
     if(newName){
-      this.user1.name = newName;
+      newName = this.user.name;
     }
     if(newLastName){
-      this.user1.lastName = newLastName;
+      newLastName = this.user.last_name;
     }
-    // if(newLastName){
-    //   this.user1.email = newEmail;
-    // }
-    // if(newLastName){
-    //   this.user1.url = newUrl; 
-    // }
+    if(newEmail){
+      newEmail = this.user.email;
+    }
+    if(newPhoto){
+      newPhoto = this.user.photo; 
+    }
 
-    console.log(this.user1.name);
-
-    if (newName || newLastName || newEmail || newUrl){
+    if (newName || newLastName || newEmail || newPhoto){
       this.message = 'Usuario Actualizado'; 
       this.isHidden = false; 
       this.myColor = '#008000'
@@ -52,11 +59,14 @@ export class ProfileComponent {
       this.isHidden = false;
       this.myColor; 
     }
-
   }
 
   updateImg(){
     let img1="/assets/img/imgProfile/person.jpg";
   }
+
+  ngOnInit(): void {
+  }
+
 }
 
