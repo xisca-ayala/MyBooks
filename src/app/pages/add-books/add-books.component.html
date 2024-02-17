@@ -18,10 +18,10 @@
             <input placeholder="Url photo" #photo type="text" class="form-control" formControlName="photo"
             [ngClass]="{'is-invalid': (addForm.get('photo').dirty || addForm.get('photo').touched) && !addForm.get('photo').valid}">
             <div *ngIf="!addForm.get('photo').valid" class="invalid-feedback">La url de la foto es necesaria. </div>
-            <input placeholder="Código libro" #id type="number" class="form-control" formControlName="id"
+            <!-- <input placeholder="Código libro" #id type="number" class="form-control" formControlName="id"
             [ngClass]="{'is-invalid': (addForm.get('id').dirty || addForm.get('id').touched) && !addForm.get('id').valid}">
-            <div *ngIf="!addForm.get('id').valid" class="invalid-feedback">El código del libro es necesario. </div>
-            <button class="btn btn-success" (click)="newBook(title, type, author, price, photo, id); goPlace()">Insertar libro</button>
+            <div *ngIf="!addForm.get('id').valid" class="invalid-feedback">El código del libro es necesario. </div> -->
+            <button class="btn btn-success" (click)="newBook(title, type, author, price, photo); goPlace()">Insertar libro</button>
         </form>
     </div>
 </div>

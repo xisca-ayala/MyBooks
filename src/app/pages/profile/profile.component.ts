@@ -70,6 +70,9 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.myUserService.logueado == false || !this.myUserService.user){
+      this.router.navigate(['login']);
+    }
   }
 
 }

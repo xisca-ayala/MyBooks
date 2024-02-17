@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/shared/books.service';
+import { UserService } from 'src/app/shared/user.service';
 import { Response } from 'src/app/models/response';
+import { Router } from '@angular/router';
 
 
 
@@ -19,7 +21,10 @@ export class BooksComponent implements OnInit{
   public id: number;
   public even: boolean;
   
-  constructor(public myBooksService: BooksService, private toast: ToastrService){
+  constructor(public myBooksService: BooksService, 
+              private myUserService: UserService,
+              private router: Router,
+              private toast: ToastrService){
   }
 
   public getCards(search_id: HTMLInputElement){
@@ -64,7 +69,11 @@ export class BooksComponent implements OnInit{
       if (!resp.err){
         this.toast.success('Libro eliminado', "",
                             {timeOut:2000, positionClass: "toast-top-center"});
-        this.books = resp.data;
+        this.myBooksService.getAll()
+        .subscribe((resp: Response)=> {
+          console.log(resp)
+          this.books = resp.data; 
+        })
       }else{
         this.toast.error('No se ha eliminado ningun libro', "", 
                     {timeOut: 2000, positionClass: 'toast-top-center'});
@@ -73,10 +82,15 @@ export class BooksComponent implements OnInit{
   }
 
   ngOnInit(): void{
-    this.myBooksService.getAll()
-    .subscribe((resp: Response)=> {
-      console.log(resp)
-      this.books = resp.data; 
-    })
+    if(this.myUserService.logueado == false || !this.myUserService.user){
+      this.router.navigate(['login']);
+    } else {
+      this.myBooksService.getAll()
+      .subscribe((resp: Response)=> {
+        console.log(resp)
+        this.books = resp.data; 
+      })
+    }
+    
   }
 }

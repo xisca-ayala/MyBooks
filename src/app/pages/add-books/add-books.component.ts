@@ -27,10 +27,8 @@ export class AddBooksComponent implements OnInit{
     this.buildForm(); 
   }
 
-  newBook(title: HTMLInputElement, type: HTMLInputElement, author: HTMLInputElement, price: HTMLInputElement, photo: HTMLInputElement, 
-  id: HTMLInputElement){
-    if (title.value == "" || type.value == "" || author.value == "" || price.value == "" || photo.value == "" || 
-    id.value == ""){
+  newBook(title: HTMLInputElement, type: HTMLInputElement, author: HTMLInputElement, price: HTMLInputElement, photo: HTMLInputElement){
+    if (title.value == "" || type.value == "" || author.value == "" || price.value == "" || photo.value == ""){
       this.toast.error("Falta un campo obligatorio","", 
       {timeOut: 2000, positionClass: 'toast-top-center'}); 
     } else {
@@ -54,10 +52,13 @@ export class AddBooksComponent implements OnInit{
           type.value = "";
           author.value = "";
           price.value = "";
-          photo.value = ""; 
-          id.value = "";
-
+          photo.value = "";
           this.myBooksService.book = null; 
+          this.myBooksService.getAll()
+          .subscribe((resp: Response)=> {
+            console.log(resp)
+            this.myBooksService.books = resp.data; 
+          })
         } else {
           this.toast.error('El libro ya existe', "", 
                     {timeOut: 2000, positionClass: 'toast-top-center'});
@@ -82,5 +83,8 @@ export class AddBooksComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    if(this.myUserService.logueado == false || !this.myUserService.user){
+      this.router.navigate(['login']);
+    }
   }
 }
