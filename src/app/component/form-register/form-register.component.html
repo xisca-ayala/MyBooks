@@ -9,9 +9,9 @@
                 <div *ngIf="!registerForm.get('name').valid" class="invalid-feedback">El nombre es necesario.</div>
             </div>
             <div class="form-group">
-                <label for="secondName">Apellido:</label>
-                <input type="text" class="form-control" formControlName="secondName" [ngClass]="{'is-invalid': (registerForm.get('secondName').dirty || registerForm.get('secondName').touched) && !registerForm.get('secondName').valid}">
-                <div *ngIf="!registerForm.get('secondName').valid" class="invalid-feedback">El apellido es necesario.</div>
+                <label for="last_name">Apellido:</label>
+                <input type="text" class="form-control" formControlName="last_name" [ngClass]="{'is-invalid': (registerForm.get('last_name').dirty || registerForm.get('last_name').touched) && !registerForm.get('last_name').valid}">
+                <div *ngIf="!registerForm.get('last_name').valid" class="invalid-feedback">El apellido es necesario.</div>
             </div>
             <div class="form-group"> 
                 <label for="email">Email:</label>

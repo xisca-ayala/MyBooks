@@ -23,43 +23,34 @@ export class FormLoginComponent implements OnInit {
 
   public login(){
     let userFormData = this.loginForm.value; 
-    if(userFormData.email !== this.myUserService.user.email || 
-      userFormData.password !== this.myUserService.user.password){
-      console.log('Los datos no coinciden')
-    }else{
-      this.myUserService.logueado = true;
-      this.router.navigate(['./books']);
-      let user: User = new User (this.myUserService.user.name, 
-                                this.myUserService.user.last_name,
-                                userFormData.email, 
-                                this.myUserService.user.photo, 
-                                userFormData.password);
-      console.log(user);
-      console.log('Los datos coinciden');
 
-      this.myUserService.login(user)
-      .subscribe((resp: Response)=>{
-        console.log(resp);
-        if(!resp.err){
-          this.toast.success('Usuario logueado con éxito', "",
-          {timeOut:2000, positionClass: 'toast-top-center'});
-          userFormData.email = "";
-          userFormData.value = "";
-          this.myUserService.user = null; 
-          }else{
-            this.toast.error('El usuario no se encuentra', "",
-                          {timeOut: 2000, positionClass: 'toast-top-center'});
-          }
-      })
-    }
+    let user: User = new User (null,
+                              null,
+                              userFormData.email, 
+                              null, 
+                              userFormData.password);
+
+    this.myUserService.login(user)
+    .subscribe((resp: Response)=>{
+      if(!resp.err){
+        this.toast.success('Usuario logueado con éxito', "",
+        {timeOut:2000, positionClass: 'toast-top-center'});
+        this.loginForm.reset({'email': '', 'password': ''});
+        this.myUserService.logueado = true;
+        user = resp.data;
+        this.myUserService.user = user; 
+        this.router.navigate(['books']);
+      }else{
+        this.toast.error('El usuario no se encuentra', "",
+                      {timeOut: 2000, positionClass: 'toast-top-center'});
+      }
+    })
   }
 
   private buildForm(){
     let minPassLength = 8;
 
     this.loginForm = this.formBuilder.group({
-      // definesc aqui les validacions, no al final de l'input al html, dins l'array hi ha una coma, perque abans de la coma hi ha el valor inicial, com volem que sigui en blanc, hi ha una coma,després un validador, o un array de validadors
-      // tambe hi pot haver una validacio inventada per jo: this.nom del metode que faig
       email: [, [Validators.required, Validators.email]],
       password:[, [Validators.required, Validators.minLength(minPassLength)]]
     });

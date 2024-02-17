@@ -1,10 +1,10 @@
 <div class="main row">
     <div class="box1 col-6">
         <div class="img">
-            <img src="{{user}}" alt="person">
+            <img src="{{user.photo}}" alt="person">
         </div>
         <div class="title">
-            <h1>{{user.name + " " + user.lastName}}</h1>
+            <h1>{{user.name + " " + user.last_name}}</h1>
         </div>
         <div class="user">
             <div class="data">
@@ -13,13 +13,14 @@
             </div>
             <div class="data">
                 <label for="lastName">Apellidos:</label>
-                <input type="text" name="lastName" id="lastName" value="{{user.lastName}}" disabled="False"> 
+                <input type="text" name="lastName" id="lastName" value="{{user.last_name}}" disabled="False"> 
             </div>
             <div class="data">
                 <label for="email">Correo Electrónico:</label>
                 <input type="email" name="email" id="email" value="{{user.email}}" disabled="False">
             </div>
         </div>
+        <button (click)="logout()"><span>LOGOUT</span></button>
         <div [hidden]="isHidden" style.color = {{myColor}}>{{message}}</div>
     </div>
     <div class="box2 col-6">
@@ -29,7 +30,7 @@
             <input type="text" name="lastName" #input2  placeholder="Apellidos"/>
             <input type="email" name="email" #input3  placeholder="Correo Electrónico"/>
             <input type="text" name="photo" #input4  placeholder="Url"/>
-            <button (click)= "updateUser(input1.value, input2.value, input3.value, input4.value)"> 
+            <button (click)="updateUser(input1.value, input2.value, input3.value, input4.value)"> 
                 <span> MODIFICAR DATOS</span>
             </button>
         </form>

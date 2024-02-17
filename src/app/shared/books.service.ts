@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Book } from '../models/book';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { UserService } from 'src/app/shared/user.service';
 
 
 @Injectable({
@@ -13,11 +14,12 @@ export class BooksService {
 
   private url = "http://localhost:3000/books";
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              public myUserService: UserService) {
   }
 
   public getAll():Observable<Object>{
-    return this.http.get(this.url);
+    return this.http.get(this.url + '?id_user=' + this.myUserService.user.id_user);
   }
 
   public getOne(id: number):Observable<Object>{

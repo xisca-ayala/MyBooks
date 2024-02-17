@@ -22,18 +22,16 @@ export class ProfileComponent implements OnInit {
   public profileForm: FormGroup; 
   public myColor: string; 
 
-
   constructor(public myUserService: UserService, 
               private formBuilder: FormBuilder, 
               private router: Router, 
               private toast: ToastrService){
-    // this.user1 = new User("Ana","García Pinya","ana@gmail.com", "/assets/img/imgProfile/person.jpg");
-
+    
+    this.user = this.myUserService.user;
     this.message = ''; 
     this.isHidden = true; 
     this.myColor = '#ff0000'; 
   }
-
 
   updateUser(newName:string, newLastName: string, newEmail:string, newPhoto:string){
 
@@ -59,6 +57,12 @@ export class ProfileComponent implements OnInit {
       this.isHidden = false;
       this.myColor; 
     }
+  }
+
+  logout(){
+    this.router.navigate(['login']);
+    this.myUserService.logueado = false;
+    this.myUserService.user = null;
   }
 
   updateImg(){

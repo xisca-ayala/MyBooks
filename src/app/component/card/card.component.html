@@ -1,13 +1,13 @@
 
 <div class="bookCard">
-    <button class="deleteCard" (click)="deleteCard(book.id)">X</button>
+    <button class="deleteCard" (click)="deleteCard(book.id_book)">X</button>
     <h2 class="titleBook dataBook">{{book.title}}</h2>
     <div class="imgBook">
         <img src="{{book.photo}}" alt="portada">
     </div>
     <div class="datasBook">
         <div class="dataBook">Escritor/a: {{book.author}}</div>
-        <div class="dataBook">Código: {{book.id | pipeRef}} </div>
+        <div class="dataBook">Código: {{book.id_book | pipeRef}} </div>
         <div class="dataBook">Tapa: {{book.type}}</div>
         <div class="dataBook">Precio: {{book.price}}</div>
     </div>

@@ -23,40 +23,21 @@ export class FormRegisterComponent implements OnInit {
 
   public register(){
     let registerData = this.registerForm.value; 
-    console.log(registerData);
 
-    if(registerData.name == "" || registerData.last_name == "" || registerData.email == ""
-      || registerData.photo == "" || registerData.password == ""|| registerData.confirmPassword == ""){
-        this.toast.error('Falta un campo obligatorio', "",
-        {timeOut: 2000, positionClass: 'toast-top-center'});
+    let newUser: User = new User (registerData.name, registerData.last_name,
+    registerData.email, registerData.photo, registerData.password);
+
+    //TODO: Solucionar el toast que no se muestra
+    this.myUserService.add(newUser)
+    .subscribe((resp: Response)=>{
+      if(!resp.err){
+        this.toast.success('Usuario insertado con éxito', 'title');
+        this.registerForm.reset({'name': '', 'last_name': '', 'email': '', 'photo': '', 'password': '', 'repeatPassword': ''});
+        this.myUserService.user = null; 
       }else{
-        if (registerData.password !== registerData.confirmPassword){
-          this.toast.error('Las contraseñas no coinciden', "",
-          {timeOut: 2000, positionClass: 'toast-top-center'});
-        }else{
-          let newUser: User = new User (registerData.name, registerData.last_name,
-          registerData.email, registerData.photo, registerData.password);
-          console.log(newUser);
-
-          this.myUserService.add(newUser)
-          .subscribe((resp: Response)=>{
-            console.log(resp); 
-            if(!resp.err){
-              this.toast.success('Usuario insertado con éxito', "",
-              {timeOut:2000, positionClass: 'toast-top-center'});
-              registerData.name = "";
-              registerData.last_name = "";
-              registerData.email = "";
-              registerData.photo = "";
-              registerData.password = "";
-              this.myUserService.user = null; 
-              }else{
-                this.toast.error('El usuario ya existe', "",
-                              {timeOut: 2000, positionClass: 'toast-top-center'});
-              }
-          })
-        }        
-      }  
+        this.toast.error('El usuario ya existe', 'title');
+      }
+    }) 
   }
 
   ngOnInit(): void {
