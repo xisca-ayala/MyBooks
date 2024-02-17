@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/shared/books.service';
+import { UserService } from 'src/app/shared/user.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Response } from 'src/app/models/response';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { User } from 'src/app/models/user';
 
 
 @Component({
@@ -17,7 +19,11 @@ export class AddBooksComponent implements OnInit{
   public message: string; 
   public addForm: FormGroup;
 
-  constructor(public myBooksService: BooksService, private router: Router, private toast: ToastrService, private formBuilder: FormBuilder){
+  constructor(public myBooksService: BooksService,
+            private myUserService: UserService,
+            private router: Router,
+            private toast: ToastrService,
+            private formBuilder: FormBuilder){
     this.buildForm(); 
   }
 
@@ -28,7 +34,13 @@ export class AddBooksComponent implements OnInit{
       this.toast.error("Falta un campo obligatorio","", 
       {timeOut: 2000, positionClass: 'toast-top-center'}); 
     } else {
-      let newBook: Book = new Book (title.value, type.value, author.value, parseFloat(price.value), photo.value, parseInt(id.value));
+      let newBook: Book = new Book (title.value, 
+                                  type.value, 
+                                  author.value, 
+                                  parseFloat(price.value), 
+                                  photo.value, 
+                                  null,
+                                  this.myUserService.user.id_user);
       console.log (newBook);
 
       this.myBooksService.add(newBook)
