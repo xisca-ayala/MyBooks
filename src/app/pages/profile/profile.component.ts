@@ -43,8 +43,7 @@ export class ProfileComponent implements OnInit {
     .subscribe((resp: Response)=>{
       if(!resp.err){
         this.toast.success("Usuario insertado con éxito","", 
-          {timeOut: 2000, positionClass: 'toast-top-center'}); 
-        this.myUserService.user = null; 
+          {timeOut: 2000, positionClass: 'toast-top-center'});
       }else{
         this.toast.error("El usuario ya existe","", 
           {timeOut: 2000, positionClass: 'toast-top-center'});
