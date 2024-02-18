@@ -9,27 +9,26 @@
         <div class="user">
             <div class="data">
                 <label for="name">Nombre:</label>
-                <input type="text" name="name" id="name" value="{{user.name}}"disabled="False" >
+                <input type="text" name="name" id="name" value="{{user.name}}" disabled="false" >
             </div>
             <div class="data">
                 <label for="lastName">Apellidos:</label>
-                <input type="text" name="lastName" id="lastName" value="{{user.last_name}}" disabled="False"> 
+                <input type="text" name="lastName" id="lastName" value="{{user.last_name}}" disabled="false"> 
             </div>
             <div class="data">
                 <label for="email">Correo Electrónico:</label>
-                <input type="email" name="email" id="email" value="{{user.email}}" disabled="False">
+                <input type="email" name="email" id="email" value="{{user.email}}" disabled="false">
             </div>
         </div>
         <button (click)="logout()"><span>LOGOUT</span></button>
-        <div [hidden]="isHidden" style.color = {{myColor}}>{{message}}</div>
     </div>
     <div class="box2 col-6">
         <h2 class="title2">EDITAR DATOS</h2>
         <form action="" class="form">
-            <input type="text" name="name" #input1  placeholder="Nombre" />
-            <input type="text" name="lastName" #input2  placeholder="Apellidos"/>
-            <input type="email" name="email" #input3  placeholder="Correo Electrónico"/>
-            <input type="text" name="photo" #input4  placeholder="Url"/>
+            <input type="text" name="name" #input1 value="{{user.name}}" placeholder="Nombre" />
+            <input type="text" name="lastName" #input2 value="{{user.last_name}}" placeholder="Apellidos"/>
+            <input type="email" name="email" #input3 value="{{user.email}}" placeholder="Correo Electrónico"/>
+            <input type="text" name="photo" #input4 value="{{user.photo}}" placeholder="Url"/>
             <button (click)="updateUser(input1.value, input2.value, input3.value, input4.value)"> 
                 <span> MODIFICAR DATOS</span>
             </button>

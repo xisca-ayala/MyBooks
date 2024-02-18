@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 import { User } from 'src/app/models/user';
 import { ToastrService } from 'ngx-toastr';
 import { Response } from 'src/app/models/response';
-import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/user.service';
 
 @Component({
@@ -16,8 +15,9 @@ export class FormRegisterComponent implements OnInit {
   public user: User; 
   public registerForm: FormGroup;
 
-  constructor(public myUserService: UserService, private formBuilder: FormBuilder,
-             private router: Router, private toast: ToastrService){
+  constructor(public myUserService: UserService, 
+              private formBuilder: FormBuilder, 
+              private toast: ToastrService){
     this.buildForm();
   }
 
@@ -26,16 +26,17 @@ export class FormRegisterComponent implements OnInit {
 
     let newUser: User = new User (registerData.name, registerData.last_name,
     registerData.email, registerData.photo, registerData.password);
-
-    //TODO: Solucionar el toast que no se muestra
+ 
     this.myUserService.add(newUser)
     .subscribe((resp: Response)=>{
       if(!resp.err){
-        this.toast.success('Usuario insertado con éxito', 'title');
+        this.toast.error("Usuario insertado con éxito","", 
+          {timeOut: 2000, positionClass: 'toast-top-center'}); 
         this.registerForm.reset({'name': '', 'last_name': '', 'email': '', 'photo': '', 'password': '', 'repeatPassword': ''});
         this.myUserService.user = null; 
       }else{
-        this.toast.error('El usuario ya existe', 'title');
+        this.toast.error("El usuario ya existe","", 
+          {timeOut: 2000, positionClass: 'toast-top-center'});
       }
     }) 
   }

@@ -34,18 +34,19 @@ export class BooksComponent implements OnInit{
       .subscribe((resp: Response)=> {
         console.log(resp);
         if(!resp.err){
-          this.books = resp.data;
+          this.books = resp.data; 
           this.toast.success('Se ha encontrado el libro', "",
                             {timeOut:2000, positionClass: "toast-top-center"});
         }else{
-          this.books = resp.data;
-          alert(resp.message);
+          this.myBooksService.getAll()
+          .subscribe((resp: Response)=> {
+            console.log(resp)
+            this.books = resp.data; 
+          })
           this.toast.error('Libro no encontrado', "", 
                     {timeOut: 2000, positionClass: 'toast-top-center'});
         } 
       });
-      this.toast.success("Busca un libro","", 
-      {timeOut: 2000, positionClass: 'toast-top-center'}); 
     } else {
       this.myBooksService.getAll()
       .subscribe((resp: Response)=> {

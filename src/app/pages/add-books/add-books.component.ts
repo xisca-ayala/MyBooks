@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Response } from 'src/app/models/response';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { User } from 'src/app/models/user';
 
 
 @Component({

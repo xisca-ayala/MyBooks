@@ -23,7 +23,7 @@ export class BooksService {
   }
 
   public getOne(id: number):Observable<Object>{
-   return this.http.get(this.url + '?id=' + id);
+   return this.http.get(this.url + '?id_user=' + this.myUserService.user.id_user + '&id_book=' + id);
   }
 
   public add(book:Book):Observable<Object>{

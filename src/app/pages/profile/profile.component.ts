@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Route } from '@angular/router';
+import { FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/shared/user.service';
+import { Response } from 'src/app/models/response';
 
 
 
@@ -17,46 +17,39 @@ import { UserService } from 'src/app/shared/user.service';
 export class ProfileComponent implements OnInit {
 
   public user: User;
-  public message: string;
-  public isHidden: boolean;
   public profileForm: FormGroup; 
-  public myColor: string; 
 
   constructor(public myUserService: UserService, 
-              private formBuilder: FormBuilder, 
               private router: Router, 
               private toast: ToastrService){
-    
     this.user = this.myUserService.user;
-    this.message = ''; 
-    this.isHidden = true; 
-    this.myColor = '#ff0000'; 
   }
 
   updateUser(newName:string, newLastName: string, newEmail:string, newPhoto:string){
-
     if(newName){
-      newName = this.user.name;
+      this.user.name = newName;
     }
     if(newLastName){
-      newLastName = this.user.last_name;
+      this.user.last_name = newLastName;
     }
     if(newEmail){
-      newEmail = this.user.email;
+      this.user.email = newEmail;
     }
     if(newPhoto){
-      newPhoto = this.user.photo; 
+      this.user.photo = newPhoto; 
     }
 
-    if (newName || newLastName || newEmail || newPhoto){
-      this.message = 'Usuario Actualizado'; 
-      this.isHidden = false; 
-      this.myColor = '#008000'
-    }else{
-      this.message = 'No se han detectado cambios'
-      this.isHidden = false;
-      this.myColor; 
-    }
+    this.myUserService.update(this.user)
+    .subscribe((resp: Response)=>{
+      if(!resp.err){
+        this.toast.success("Usuario insertado con éxito","", 
+          {timeOut: 2000, positionClass: 'toast-top-center'}); 
+        this.myUserService.user = null; 
+      }else{
+        this.toast.error("El usuario ya existe","", 
+          {timeOut: 2000, positionClass: 'toast-top-center'});
+      }
+    }) 
   }
 
   logout(){

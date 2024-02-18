@@ -26,6 +26,11 @@ export class UserService {
     return this.http.post(loginUserUrl, user);
   }
 
+  public update(user: User):Observable<Object>{
+    let udpateUserUrl = this.url + 'user';
+    return this.http.put(udpateUserUrl, user);
+  }
+
 }
 
 
