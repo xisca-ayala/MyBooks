@@ -64,7 +64,8 @@ export class BooksComponent implements OnInit{
   }
 
   public deleteBook (id:number){
-    this.myBooksService.delete(id)
+    const book: Book = new Book(null, null, null, null, null, id, null);
+    this.myBooksService.delete(book)
     .subscribe((resp: Response)=> {
       console.log(resp); 
       if (!resp.err){
